@@ -1,4 +1,4 @@
-PSPDFKit SDK for MAUI
+PSPDFKit .NET Bindings for iOS
 
 The PSPDFKit SDK is the leading framework for displaying, annotating and editing PDFs on iOS, macOS, Android, Windows, Electron and the Web.
 

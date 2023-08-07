@@ -1,4 +1,4 @@
-PSPDFKit for .NET MAUI SDKs Bindings
+# PSPDFKit .NET Bindings for iOS
 ====================================
 
 - .NET for iOS, MacCatalyst Bindings for PSPDFKit version 12.3.1
