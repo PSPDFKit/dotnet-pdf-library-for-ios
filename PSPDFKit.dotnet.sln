@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1704.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{405F65C5-3030-4C21-A2AE-78D2DB934007}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MacCatalyst", "MacCatalyst", "{8D3A5D77-A347-4BCC-ABD3-843B6C44C674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.iOS.Model", "PSPDFKit.dotnet.iOS.Model\PSPDFKit.dotnet.iOS.Model.csproj", "{723FEB4D-B7F8-4B49-90B4-0B8079E2FB25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.MacCatalyst.Model", "PSPDFKit.dotnet.MacCatalyst.Model\PSPDFKit.dotnet.MacCatalyst.Model.csproj", "{3A70A9C2-8807-464B-AA9E-B0E3E0EE95BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.iOS.UI", "PSPDFKit.dotnet.iOS.UI\PSPDFKit.dotnet.iOS.UI.csproj", "{14AA3936-1CEC-4BA2-ADF1-D4898C8272D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.MacCatalyst.UI", "PSPDFKit.dotnet.MacCatalyst.UI\PSPDFKit.dotnet.MacCatalyst.UI.csproj", "{D5C5B764-FB40-41F7-A1A3-7185F071F3C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.iOS.Instant", "PSPDFKit.dotnet.iOS.Instant\PSPDFKit.dotnet.iOS.Instant.csproj", "{185B7602-9264-4F0A-8F39-A48670A24FC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.MacCatalyst.Instant", "PSPDFKit.dotnet.MacCatalyst.Instant\PSPDFKit.dotnet.MacCatalyst.Instant.csproj", "{BF2ADC8B-23CE-46F7-BF26-4D3512791C00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{723FEB4D-B7F8-4B49-90B4-0B8079E2FB25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723FEB4D-B7F8-4B49-90B4-0B8079E2FB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723FEB4D-B7F8-4B49-90B4-0B8079E2FB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723FEB4D-B7F8-4B49-90B4-0B8079E2FB25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A70A9C2-8807-464B-AA9E-B0E3E0EE95BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A70A9C2-8807-464B-AA9E-B0E3E0EE95BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A70A9C2-8807-464B-AA9E-B0E3E0EE95BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A70A9C2-8807-464B-AA9E-B0E3E0EE95BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14AA3936-1CEC-4BA2-ADF1-D4898C8272D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14AA3936-1CEC-4BA2-ADF1-D4898C8272D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14AA3936-1CEC-4BA2-ADF1-D4898C8272D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14AA3936-1CEC-4BA2-ADF1-D4898C8272D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C5B764-FB40-41F7-A1A3-7185F071F3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C5B764-FB40-41F7-A1A3-7185F071F3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C5B764-FB40-41F7-A1A3-7185F071F3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C5B764-FB40-41F7-A1A3-7185F071F3C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{185B7602-9264-4F0A-8F39-A48670A24FC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{185B7602-9264-4F0A-8F39-A48670A24FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{185B7602-9264-4F0A-8F39-A48670A24FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{185B7602-9264-4F0A-8F39-A48670A24FC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2ADC8B-23CE-46F7-BF26-4D3512791C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2ADC8B-23CE-46F7-BF26-4D3512791C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2ADC8B-23CE-46F7-BF26-4D3512791C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2ADC8B-23CE-46F7-BF26-4D3512791C00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {179C4419-15D0-4235-A999-AF83CDC5E8E6}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{723FEB4D-B7F8-4B49-90B4-0B8079E2FB25} = {405F65C5-3030-4C21-A2AE-78D2DB934007}
+		{3A70A9C2-8807-464B-AA9E-B0E3E0EE95BE} = {8D3A5D77-A347-4BCC-ABD3-843B6C44C674}
+		{14AA3936-1CEC-4BA2-ADF1-D4898C8272D9} = {405F65C5-3030-4C21-A2AE-78D2DB934007}
+		{D5C5B764-FB40-41F7-A1A3-7185F071F3C5} = {8D3A5D77-A347-4BCC-ABD3-843B6C44C674}
+		{185B7602-9264-4F0A-8F39-A48670A24FC7} = {405F65C5-3030-4C21-A2AE-78D2DB934007}
+		{BF2ADC8B-23CE-46F7-BF26-4D3512791C00} = {8D3A5D77-A347-4BCC-ABD3-843B6C44C674}
+	EndGlobalSection
+EndGlobal

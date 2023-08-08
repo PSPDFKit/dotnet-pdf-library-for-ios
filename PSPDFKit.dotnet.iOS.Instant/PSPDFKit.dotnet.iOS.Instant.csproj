@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- <TargetFramework>net7.0-ios</TargetFramework> -->
+    <TargetFrameworks>net6.0-ios;net7.0-ios</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+    <ProcessEnums>true</ProcessEnums>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
+    <CompressBindingResourcePackage>true</CompressBindingResourcePackage>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>PSPDFKit.dotnet.iOS.Instant</PackageId>
+    <Title>PSPDFKit for .NET iOS - Instant</Title>
+    <Summary>With PSPDFKit Instant, it's easier than ever to add real-time collaboration, efficient synchronization, offline support, and data security to your apps. Instant is made especially for PSPDFKit, works extremely fast, and is available on all platforms.</Summary>
+    <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
+    <Authors>PSPDFKit GmbH</Authors>
+    <Owners>PSPDFKit GmbH</Owners>
+    <Copyright>PSPDFKit GmbH. Copyright 2010-2023</Copyright>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://pspdfkit.com/instant/</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>pdf, pdf document, pdf document view, pdf sdk, pdf annotation, edit pdf, display pdf, display pdf, xamarin, maui, ios</PackageTags>
+    <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/PSPDFKit/Xamarin-iOS</RepositoryUrl>
+    <PackageVersion>$(PSVersion)</PackageVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
+    <None Include="..\nuget\icon.png" Pack="true" PackagePath="icon.png" />
+    <None Include="..\nuget\readme.txt" Pack="true" PackagePath="readme.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="Structs.cs" />
+    <NativeReference Include="Instant.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>true</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSPDFKit.dotnet.iOS.Model\PSPDFKit.dotnet.iOS.Model.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\PSPDFKit.dotnet.iOS.UI\PSPDFKit.dotnet.iOS.UI.csproj" PrivateAssets="None" />
+  </ItemGroup>
+</Project>
