@@ -22,6 +22,9 @@ namespace PSPDFKit.Model {
 		public const string DlPath = null;
 #endif
 
+		internal const string HybridEnvironmentKey = "com.pspdfkit.hybrid-environment";
+		internal const string ProductIdentifier = "DotNetBindingsIOS";
+
 		public NSObject this [NSString settingKey] {
 			get => GetObject (settingKey);
 			set => SetObject (value, settingKey);
