@@ -4156,10 +4156,6 @@ namespace PSPDFKit.Model {
 		void _SetLicenseKey ([NullAllowed] string licenseKey, [NullAllowed] NSDictionary options);
 
 		[Static]
-		[Wrap ("_SetLicenseKey (licenseKey, new NSDictionary (HybridEnvironmentKey, ProductIdentifier))")]
-		void SetLicenseKey ([NullAllowed] string licenseKey);
-
-		[Static]
 		[Export ("versionString")]
 		string VersionString { get; }
 
