@@ -45,10 +45,12 @@ namespace PSPDFKit.Model {
 			}
 		}
 
-		public static void SetLicenseKey (string? licenseKey, NSMutableDictionary options)
+		public static void SetLicenseKey (string? licenseKey, NSMutableDictionary? options)
 		{
-			if (options is null)
-				throw new ArgumentNullException (nameof (options));
+			if (options is null) {
+				SetLicenseKey (licenseKey);
+				return;
+			}
 
 			var key = CFString.CreateNative (HybridEnvironmentKey);
 			var value = CFString.CreateNative (ProductIdentifier);
