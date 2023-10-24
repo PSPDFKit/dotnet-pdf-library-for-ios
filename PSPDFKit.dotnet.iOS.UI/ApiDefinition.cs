@@ -8291,20 +8291,14 @@ namespace PSPDFKit.UI {
 		[Field ("PSPDFAnnotationStyleKeyRepeatOverlayText", PSPDFKitGlobal.LibraryPath)]
 		NSString RepeatOverlayTextKey { get; }
 
-		[Field ("PSPDFAnnotationStyleKeyMeasurementScale", PSPDFKitGlobal.LibraryPath)]
-		NSString MeasurementScale { get; }
-
-		[Field ("PSPDFAnnotationStyleKeyMeasurementCalibration", PSPDFKitGlobal.LibraryPath)]
-		NSString MeasurementCalibration { get; }
-
-		[Field ("PSPDFAnnotationStyleKeyMeasurementPrecision", PSPDFKitGlobal.LibraryPath)]
-		NSString MeasurementPrecision { get; }
-
 		[Field ("PSPDFAnnotationStyleKeyMeasurementSnapping", PSPDFKitGlobal.LibraryPath)]
 		NSString MeasurementSnapping { get; }
 
 		[Field ("PSPDFAnnotationStyleKeyContents", PSPDFKitGlobal.LibraryPath)]
 		NSString Contents { get; }
+
+		[Field ("PSPDFAnnotationStyleKeyMeasurementValueConfiguration", PSPDFKitGlobal.LibraryPath)]
+		NSString MeasurementValueConfiguration { get; }
 	}
 
 	[BaseType (typeof (UIView))]

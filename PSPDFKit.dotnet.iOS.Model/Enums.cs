@@ -755,6 +755,7 @@ namespace PSPDFKit.Model {
 		CannotSignFormElement = 272,
 		CannotSignAlreadySigned = 273,
 		CouldNotHashDocument = 274,
+		EmptyCertificateChain = 275,
 	}
 
 	public enum PSPDFSoundAnnotationEncoding {
@@ -936,6 +937,8 @@ namespace PSPDFKit.Model {
 		EllipticalAreaMeasurement,
 		[Field ("PSPDFAnnotationVariantStringRectangularAreaMeasurement", PSPDFKitLibraryPath.LibraryPath)]
 		RectangularAreaMeasurement,
+		[Field ("PSPDFAnnotationVariantStringMeasurementScaleCalibration", PSPDFKitLibraryPath.LibraryPath)]
+		MeasurementScaleCalibration,
 	}
 
 	public enum PSPDFAnnotationStateVariantId {
@@ -1088,6 +1091,11 @@ namespace PSPDFKit.Model {
 		TwoDecimalPlaces,
 		ThreeDecimalPlaces,
 		FourDecimalPlaces,
+		InchesWhole,
+		InchesHalves,
+		InchesQuarters,
+		InchesEighths,
+		InchesSixteenths,
 	}
 
 	[Native]

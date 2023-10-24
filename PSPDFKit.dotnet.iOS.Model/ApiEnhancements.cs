@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using CoreGraphics;
 using Foundation;
+using CoreFoundation;
 using ObjCRuntime;
 #if __IOS__
 using UIKit;
@@ -22,9 +23,44 @@ namespace PSPDFKit.Model {
 		public const string DlPath = null;
 #endif
 
+		internal const string HybridEnvironmentKey = "com.pspdfkit.hybrid-environment";
+		internal const string ProductIdentifier = "DotNetBindingsIOS";
+
 		public NSObject this [NSString settingKey] {
 			get => GetObject (settingKey);
 			set => SetObject (value, settingKey);
+		}
+
+		public static void SetLicenseKey (string? licenseKey)
+		{
+			var key = CFString.CreateNative (HybridEnvironmentKey);
+			var value = CFString.CreateNative (ProductIdentifier);
+			try {
+				using var options = new NSMutableDictionary ();
+				options.LowlevelSetObject (value, key);
+				_SetLicenseKey (licenseKey, options);
+			} finally {
+				CFString.ReleaseNative (key);
+				CFString.ReleaseNative (value);
+			}
+		}
+
+		public static void SetLicenseKey (string? licenseKey, NSMutableDictionary? options)
+		{
+			if (options is null) {
+				SetLicenseKey (licenseKey);
+				return;
+			}
+
+			var key = CFString.CreateNative (HybridEnvironmentKey);
+			var value = CFString.CreateNative (ProductIdentifier);
+			try {
+				options.LowlevelSetObject (value, key);
+				_SetLicenseKey (licenseKey, options);
+			} finally {
+				CFString.ReleaseNative (key);
+				CFString.ReleaseNative (value);
+			}
 		}
 	}
 

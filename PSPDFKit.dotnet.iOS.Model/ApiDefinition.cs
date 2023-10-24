@@ -2366,14 +2366,6 @@ namespace PSPDFKit.Model {
 
 		[Export ("resolveFileConflictForDataProvider:withResolution:error:")]
 		bool ResolveFileConflict (IPSPDFCoordinatedFileDataProviding dataProvider, PSPDFFileConflictResolution resolution, [NullAllowed] out NSError error);
-
-		// PSPDFDocument ()
-
-		[Export ("measurementScale")]
-		PSPDFMeasurementScale MeasurementScale { get; set; }
-
-		[Export ("measurementPrecision")]
-		PSPDFMeasurementPrecision MeasurementPrecision { get; set; }
 	}
 
 	[Static]
@@ -2958,11 +2950,15 @@ namespace PSPDFKit.Model {
 
 		// PSPDFDocument ()
 
-		[Export ("measurementScale")]
-		PSPDFMeasurementScale MeasurementScale { get; set; }
+		[Export ("measurementValueConfigurations")]
+		PSPDFMeasurementValueConfiguration [] MeasurementValueConfigurations { get; }
 
-		[Export ("measurementPrecision")]
-		PSPDFMeasurementPrecision MeasurementPrecision { get; set; }
+		[Export ("activeMeasurementValueConfiguration")]
+		[NullAllowed]
+		PSPDFMeasurementValueConfiguration ActiveMeasurementValueConfiguration { get; set; }
+
+		[Export ("addMeasurementValueConfiguration:")]
+		bool AddMeasurementValueConfiguration (PSPDFMeasurementValueConfiguration valueConfiguration);
 	}
 
 	interface IPSPDFDocumentProviderDelegate { }
@@ -4149,13 +4145,15 @@ namespace PSPDFKit.Model {
 		[Export ("sharedInstance")]
 		PSPDFKitGlobal SharedInstance { get; }
 
+		[Internal]
 		[Static]
 		[Export ("setLicenseKey:")]
-		void SetLicenseKey ([NullAllowed] string licenseKey);
+		void _SetLicenseKey ([NullAllowed] string licenseKey);
 
+		[Internal]
 		[Static]
 		[Export ("setLicenseKey:options:")]
-		void SetLicenseKey ([NullAllowed] string licenseKey, [NullAllowed] NSDictionary options);
+		void _SetLicenseKey ([NullAllowed] string licenseKey, [NullAllowed] NSDictionary options);
 
 		[Static]
 		[Export ("versionString")]
@@ -4870,6 +4868,7 @@ namespace PSPDFKit.Model {
 	}
 
 	delegate void PSPDFPKCS12UnlockHandler ([NullAllowed] PSPDFX509 x509, [NullAllowed] PSPDFPrivateKey pk, [NullAllowed] NSError error);
+	delegate void PSPDFPKCS12UnlockCertHandler ([NullAllowed] PSPDFX509 [] certificateChain, [NullAllowed] PSPDFPrivateKey pk, [NullAllowed] NSError error);
 
 	[BaseType (typeof (NSObject))]
 	[DisableDefaultCtor]
@@ -4885,6 +4884,10 @@ namespace PSPDFKit.Model {
 		[Async (ResultTypeName = "PSPDFPKCS12UnlockHandlerResult")]
 		[Export ("unlockWithPassword:done:")]
 		void Unlock (string password, [NullAllowed] PSPDFPKCS12UnlockHandler done);
+
+		[Async (ResultTypeName = "PSPDFPKCS12UnlockCertHandlerResult")]
+		[Export ("unlockCertificateChainWithPassword:done:")]
+		void UnlockCertificateChain (string password, [NullAllowed] PSPDFPKCS12UnlockCertHandler done);
 	}
 
 	delegate void PSPDFPKCS12SignerSignFormElementCompletionHandler (bool success, PSPDFDocument document, NSError error);
@@ -5925,8 +5928,8 @@ namespace PSPDFKit.Model {
 		PSPDFSignatureStatus VerifySignature ([NullAllowed] PSPDFX509 [] trustedCertificates, [NullAllowed] out NSError error);
 	}
 
-	delegate void PSPDFSignerSignFormElementHandler (bool success, PSPDFDocument document, NSError error);
-	delegate void PSPDFSignerSignFormElementSinkHandler (bool success, IPSPDFDataSink document, NSError error);
+	delegate void PSPDFSignerSignFormElementHandler (bool success, PSPDFDocument document, [NullAllowed] NSError error);
+	delegate void PSPDFSignerSignFormElementSinkHandler (bool success, IPSPDFDataSink document, [NullAllowed] NSError error);
 	delegate void PSPDFSignatureCreationHandler (bool success, [NullAllowed] IPSPDFDataSink document, [NullAllowed] NSError error);
 
 	[BaseType (typeof (NSObject))]
@@ -5979,10 +5982,20 @@ namespace PSPDFKit.Model {
 		[Advice ("Requires base call if override.")]
 		void SignFormElement (PSPDFSignatureFormElement element, PSPDFX509 certificate, IPSPDFDataSink dataSink, [NullAllowed] PSPDFSignerSignFormElementSinkHandler completion);
 
+		[Async (ResultTypeName = "PSPDFSignerSignFormElementCertSinkResult")]
+		[Export ("signFormElement:withCertificateChain:writeToDataSink:completionBlock:")]
+		[Advice ("Requires base call if override.")]
+		void SignFormElement (PSPDFSignatureFormElement element, PSPDFX509 [] certificateChain, IPSPDFDataSink dataSink, [NullAllowed] PSPDFSignerSignFormElementSinkHandler completion);
+
 		[Async (ResultTypeName = "PSPDFSignerSignFormElementResult")]
 		[Export ("signFormElement:withCertificate:writeTo:completionBlock:")]
 		[Advice ("Requires base call if override.")]
 		void SignFormElement (PSPDFSignatureFormElement element, PSPDFX509 certificate, string path, [NullAllowed] PSPDFSignerSignFormElementHandler completion);
+
+		[Async (ResultTypeName = "PSPDFSignerSignFormElementCertResult")]
+		[Export ("signFormElement:withCertificateChain:writeTo:completionBlock:")]
+		[Advice ("Requires base call if override.")]
+		void SignFormElement (PSPDFSignatureFormElement element, PSPDFX509 [] certificateChain, string path, [NullAllowed] PSPDFSignerSignFormElementHandler completion);
 	}
 
 	[DisableDefaultCtor]
@@ -7160,20 +7173,14 @@ namespace PSPDFKit.Model {
 		[Field ("PSPDFAnnotationStyleKeyRepeatOverlayText", PSPDFKitLibraryPath.LibraryPath)]
 		NSString RepeatOverlayText { get; }
 
-		[Field ("PSPDFAnnotationStyleKeyMeasurementScale", PSPDFKitLibraryPath.LibraryPath)]
-		NSString MeasurementScale { get; }
-
-		[Field ("PSPDFAnnotationStyleKeyMeasurementCalibration", PSPDFKitLibraryPath.LibraryPath)]
-		NSString MeasurementCalibration { get; }
-
-		[Field ("PSPDFAnnotationStyleKeyMeasurementPrecision", PSPDFKitLibraryPath.LibraryPath)]
-		NSString MeasurementPrecision { get; }
-
 		[Field ("PSPDFAnnotationStyleKeyMeasurementSnapping", PSPDFKitLibraryPath.LibraryPath)]
 		NSString MeasurementSnapping { get; }
 
 		[Field ("PSPDFAnnotationStyleKeyContents", PSPDFKitLibraryPath.LibraryPath)]
 		NSString Contents { get; }
+
+		[Field ("PSPDFAnnotationStyleKeyMeasurementValueConfiguration", PSPDFKitLibraryPath.LibraryPath)]
+		NSString MeasurementValueConfiguration { get; }
 	}
 
 	[BaseType (typeof (PSPDFConversionOperation))]
@@ -7335,5 +7342,23 @@ namespace PSPDFKit.Model {
 
 		[Export ("boundingBox")]
 		CGRect BoundingBox { get; }
+	}
+
+	[BaseType (typeof (NSObject))]
+	[DisableDefaultCtor]
+	interface PSPDFMeasurementValueConfiguration {
+
+		[Export ("name"), NullAllowed]
+		string Name { get; }
+
+		[Export ("scale")]
+		PSPDFMeasurementScale Scale { get; }
+
+		[Export ("precision")]
+		PSPDFMeasurementPrecision Precision { get; }
+
+		[Export ("initWithName:scale:precision:")]
+		[DesignatedInitializer]
+		NativeHandle Constructor (string name, PSPDFMeasurementScale scale, PSPDFMeasurementPrecision precision);
 	}
 }
