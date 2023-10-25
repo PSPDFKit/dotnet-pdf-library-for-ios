@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.iOS.Model</PackageId>
-    <Title>PSPDFKit for .NET iOS - Model</Title>
+    <PackageId>PSPDFKit.NET.iOS.Model</PackageId>
+    <Title>PSPDFKit.NET (iOS) - Model</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the iOS PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH</Authors>

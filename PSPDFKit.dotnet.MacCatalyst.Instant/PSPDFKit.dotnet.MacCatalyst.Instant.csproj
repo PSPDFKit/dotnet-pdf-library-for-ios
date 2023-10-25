@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.MacCatalyst.Instant</PackageId>
-    <Title>PSPDFKit for .NET MacCatalyst - Instant</Title>
+    <PackageId>PSPDFKit.NET.MacCatalyst.Instant</PackageId>
+    <Title>PSPDFKit.NET (iOS) - MacCatalyst Instant</Title>
     <Summary>With PSPDFKit Instant, it's easier than ever to add real-time collaboration, efficient synchronization, offline support, and data security to your apps. Instant is made especially for PSPDFKit, works extremely fast, and is available on all platforms.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH</Authors>

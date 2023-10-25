@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.MacCatalyst.UI</PackageId>
-    <Title>PSPDFKit for .NET MacCatalyst - UI</Title>
+    <PackageId>PSPDFKit.NET.MacCatalyst.UI</PackageId>
+    <Title>PSPDFKit.NET (iOS) - MacCatalyst UI</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the iOS PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH</Authors>
