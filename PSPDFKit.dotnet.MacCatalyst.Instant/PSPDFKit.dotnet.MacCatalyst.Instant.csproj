@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.NET.MacCatalyst.Instant</PackageId>
+    <PackageId>PSPDFKit.dotnet.MacCatalyst.Instant</PackageId>
     <Title>PSPDFKit.NET (iOS) - MacCatalyst Instant</Title>
     <Summary>With PSPDFKit Instant, it's easier than ever to add real-time collaboration, efficient synchronization, offline support, and data security to your apps. Instant is made especially for PSPDFKit, works extremely fast, and is available on all platforms.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
@@ -22,7 +22,7 @@
     <PackageProjectUrl>https://pspdfkit.com/instant/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library</PackageTags>
+    <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
     <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/Xamarin-iOS</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
