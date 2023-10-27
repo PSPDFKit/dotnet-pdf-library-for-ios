@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <PackageId>PSPDFKit.dotnet.MacCatalyst.Model</PackageId>
-    <Title>PSPDFKit for .NET MacCatalyst - Model</Title>
+    <Title>PSPDFKit.NET (iOS) - MacCatalyst Model</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the iOS PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH</Authors>
@@ -22,7 +22,7 @@
     <PackageProjectUrl>https://pspdfkit.com/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>pdf, pdf document, pdf document view, pdf sdk, pdf annotation, edit pdf, display pdf, display pdf, xamarin, maui, ios</PackageTags>
+    <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
     <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/Xamarin-iOS</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
