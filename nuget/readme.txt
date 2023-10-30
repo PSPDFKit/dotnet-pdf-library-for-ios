@@ -1,29 +1,17 @@
-PSPDFKit .NET Bindings for iOS
+PSPDFKit.NET (iOS)
 
-The PSPDFKit SDK is the leading framework for displaying, annotating and editing PDFs on iOS, macOS, Android, Windows, Electron and the Web.
+The PSPDFKit SDK is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
 
 PSPDFKit Instant adds real-time collaboration features to seamlessly share, edit, and annotate PDF documents.
 
+## Setup
 
-## Additional Required Setup (Please Read!)
+PSPDFKit offers support for customers with an active SDK license via https://pspdfkit.com/support/request/.
 
-You can try PSPDFKit in a few simple steps and get the library up and running in your app with little to no effort.
+Are you evaluating our SDK? That's great, we're happy to help out! To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
 
-1. Get the license key from your [customer portal](https://customers.pspdfkit.com/customers/sign_in) or use 'null' for the evaluation version.
-
-2. Set your license key
-
-public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
-{
-	PSPDFKitGlobal.SetLicenseKey (null, null);
-	// ...
-}
-
-3. Now you can start using the SDK.
-
+Visit https://pspdfkit.com/guides/ios/dotnet/ for more information on how to setup and use the SDK.
 
 ## Examples
 
-You can find several example projects in https://github.com/PSPDFKit/Xamarin-iOS, including a catalog, Xamarin.Forms, and macOS.
-
-Visit https://pspdfkit.com/guides/ios/current/other-languages/xamarin/ for more information.
+Examples are available at https://github.com/PSPDFKit/dotnet-pdf-library-for-ios/.
