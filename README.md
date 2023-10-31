@@ -10,7 +10,7 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 
 #### Related
 
-- PSPDFKit.NET (Android): [PSPDFKit/dotnet-android](https://github.com/PSPDFKit/dotnet-android)
+- PSPDFKit.NET (Android): [PSPDFKit/dotnet-pdf-library-for-android](https://github.com/PSPDFKit/dotnet-pdf-library-for-android)
 
 ## Support, Issues and License Questions
 
