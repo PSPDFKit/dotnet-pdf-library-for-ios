@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!-- <TargetFramework>net7.0-ios</TargetFramework> -->
-    <TargetFrameworks>net6.0-ios;net7.0-ios</TargetFrameworks>
+    <TargetFramework>net7.0-ios</TargetFramework>
+    <!-- <TargetFrameworks>net6.0-ios;net7.0-ios</TargetFrameworks> -->
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
@@ -24,7 +24,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
     <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/PSPDFKit/Xamarin-iOS</RepositoryUrl>
+    <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-ios</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
