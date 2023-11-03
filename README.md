@@ -36,6 +36,19 @@ Build Instructions
 1. Clone this repository to your computer.
 
 ## Step 2 - Integrating PSPDFKit
+
+### Integrating PSPDFKit via NuGet (Recommended)
+
+1. Right-Click on your project in Visual Studio and select "Manage NuGet Packages..."
+2. In the `Browse` section for "nuget.org" search for "PSPDFKit.dotnet":
+
+<img width="70%" src="Images/Add-NuGet-packages.png"/>
+
+3. Select the following two iOS packages: PSPDFKit.dotnet.iOS.Model and PSPDFKit.dotnet.iOS.UI.
+4. Tap on "Add Packages" to add the NuGet packages to your project.
+
+Now you are done and can skip to [Using PSPDFKit in your project](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios#step-3---using-pspdfkit-in-your-project)!
+
 ### Integrating PSPDFKit by adding the DLLs (Advanced)
 #### Downloading required files
 
@@ -94,7 +107,9 @@ You can find two basic examples inside the Samples folder, porting the catalog i
 1. Do `./build.sh --target DownloadDeps` from inside the root folder.
 2. Open the `Samples/PSPDFKit.dotnet.Samples.sln` solution in Visual Studio.
 3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`").
+
 <img width="60%" src="Images/Project-setup.png"/>
+
 4. Tap on the triangle on the left to run the project.
 
 ## Generating a Stack Trace
@@ -120,6 +135,7 @@ If you want to remove lldb from your debug setup again you can simply run `rm ~/
 3. In the Activity Monitor app search for your app name in the search bar. To give an example, if I want to attach to our PSPDFCatalog example app I need to search for "PSPDFCatalog".
 4. Double-Click on the process to view the information window.
 5. Now you need to identify the PID (Process ID) of your process. The PID is the number included in the round brackets in the window title, e.g. if the title says "PSPDFCatalog (73389)", then 73389 is your PID. Here's an example of how that looks:
+
 <img width="50%" src="Images/pid.png"/>
 
 6. Now you need to open your Terminal app and enter the following command to attach lldb: `lldb -p YOUR-PID aux`. For the example case above this is what the full command would look like: `lldb -p 73389 aux`.
