@@ -1,6 +1,6 @@
 # PSPDFKit.NET (iOS)
 
-- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 13.0.1
+- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 13.1.0
 
 #### PSPDFKit
 
@@ -87,7 +87,7 @@ Also you do need to set your **license key** early on in your `AppDelegate`, bef
 ```csharp
 public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 {
-	PSPDFKitGlobal.SetLicenseKey (null, null);
+	PSPDFKitGlobal.SetLicenseKey (null);
 	// ...
 }
 ```
