@@ -6614,7 +6614,7 @@ namespace PSPDFKit.Model {
 		void LoadAllAnnotations ();
 
 		[Export ("ignorePageRotation")]
-		bool ignorePageRotation { get; set; }
+		bool IgnorePageRotation { get; set; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -6642,7 +6642,7 @@ namespace PSPDFKit.Model {
 		IPSPDFDataProviding DataProvider { get; }
 
 		[Export ("ignorePageRotation")]
-		bool ignorePageRotation { get; set; }
+		bool IgnorePageRotation { get; set; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -6652,7 +6652,7 @@ namespace PSPDFKit.Model {
 		bool WriteAnnotations (PSPDFAnnotation [] annotations, IPSPDFDataSink dataSink, PSPDFDocumentProvider documentProvider, [NullAllowed] out NSError error);
 
 		[Export ("ignorePageRotation")]
-		bool ignorePageRotation { get; set; }
+		bool IgnorePageRotation { get; set; }
 	}
 
 	[BaseType (typeof (NSFormatter))]
