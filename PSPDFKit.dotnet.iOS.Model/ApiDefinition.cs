@@ -2959,6 +2959,10 @@ namespace PSPDFKit.Model {
 
 		[Export ("addMeasurementValueConfiguration:")]
 		bool AddMeasurementValueConfiguration (PSPDFMeasurementValueConfiguration valueConfiguration);
+
+		[Export ("defaultMeasurementValueConfiguration")]
+		[NullAllowed]
+		PSPDFMeasurementValueConfiguration DefaultMeasurementValueConfiguration { get; set; }
 	}
 
 	interface IPSPDFDocumentProviderDelegate { }
@@ -5899,6 +5903,9 @@ namespace PSPDFKit.Model {
 		[Export ("coversEntireDocument")]
 		bool CoversEntireDocument { get; }
 
+		[Export ("isValid")]
+		bool IsValid { get; }
+
 		[Export ("problems")]
 		string [] Problems { get; }
 
@@ -5910,6 +5917,48 @@ namespace PSPDFKit.Model {
 
 		[Export ("summary")]
 		string Summary { get; }
+
+		[Export ("signatureType")]
+		PSPDFSignatureType SignatureType { get; }
+
+		[Export ("padesSignatureLevel")]
+		PSPDFPadesSignatureLevel PadesSignatureLevel { get; }
+
+		[Export ("validFrom")]
+		[NullAllowed]
+		NSDate ValidFrom { get; }
+
+		[Export ("validUntil")]
+		[NullAllowed]
+		NSDate ValidUntil { get; }
+
+		[Export ("serialNumber")]
+		[NullAllowed]
+		NSData SerialNumber { get; }
+
+		[Export ("subjectDistinguishedName")]
+		[NullAllowed]
+		string SubjectDistinguishedName { get; }
+
+		[Export ("issuerCommonName")]
+		[NullAllowed]
+		string IssuerCommonName { get; }
+
+		[Export ("publicKey")]
+		[NullAllowed]
+		PSPDFRSAKey PublicKey { get; }
+
+		[Export ("hashAlgorithm")]
+		PSPDFSignatureHashAlgorithm HashAlgorithm { get; }
+
+		[Export ("encryptionAlgorithm")]
+		PSPDFSignatureEncryptionAlgorithm EncryptionAlgorithm { get; }
+
+		[Export ("isSelfSigned")]
+		bool IsSelfSigned { get; }
+
+		[Export ("isLongTermValidationEnabled")]
+		bool IsLongTermValidationEnabled { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
