@@ -1082,6 +1082,8 @@ namespace PSPDFKit.Model {
 		Cms,
 		Pades,
 		Sha1,
+		Timestamp,
+		Unknown,
 	}
 
 	[Native]
@@ -1131,5 +1133,13 @@ namespace PSPDFKit.Model {
 		Automatic = 0,
 		One = 1,
 		Two = 2,
+	}
+
+	[Native]
+	public enum PSPDFPadesSignatureLevel : long {
+		Bb,
+		Bt,
+		Blt,
+		None,
 	}
 }
