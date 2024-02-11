@@ -1548,6 +1548,9 @@ namespace PSPDFKit.UI {
 		[Export ("redactionUsageHintEnabled")]
 		bool RedactionUsageHintEnabled { get; set; }
 
+		[Export ("mainToolbarMode")]
+		PSPDFMainToolbarMode MainToolbarMode { get; set; }
+
 		[Export ("backgroundColor")]
 		UIColor BackgroundColor { get; set; }
 
@@ -1859,6 +1862,9 @@ namespace PSPDFKit.UI {
 
 		[Export ("redactionUsageHintEnabled")]
 		bool RedactionUsageHintEnabled { get; }
+
+		[Export ("mainToolbarMode")]
+		PSPDFMainToolbarMode MainToolbarMode { get; }
 
 		[Export ("showBackActionButton")]
 		bool ShowBackActionButton { get; }
