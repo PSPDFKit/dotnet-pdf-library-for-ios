@@ -1,6 +1,6 @@
 # PSPDFKit.NET (iOS)
 
-- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 13.2.0
+- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 13.3.0
 
 #### PSPDFKit
 
@@ -24,9 +24,9 @@ Minimum Requirements
 
 In order to build this binding project you need:
 
-- **Visual Studio for Mac 2022 17.4.3**
-- **.NET for iOS 16.2.1007/7.0.100 or higher +**
-- **.NET for MacCatalyst 16.2.1007/7.0.100 or higher +**
+- **Visual Studio for Mac 2022 17.4.3+**
+- **.NET for iOS 17.2.8004/8.0.100 or higher +**
+- **.NET for MacCatalyst 17.2.8004/8.0.100 or higher +**
 
 Build Instructions
 ==================

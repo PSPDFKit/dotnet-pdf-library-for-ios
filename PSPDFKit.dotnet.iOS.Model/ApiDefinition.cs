@@ -2721,10 +2721,6 @@ namespace PSPDFKit.Model {
 	[DisableDefaultCtor]
 	interface PSPDFPageSize {
 
-		[Static]
-		[Export ("size:name:")]
-		PSPDFPageSize Create (CGSize size, string name);
-
 		[Export ("initWithSize:name:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor (CGSize size, string name);
@@ -6413,8 +6409,8 @@ namespace PSPDFKit.Model {
 		[Export ("cancelAllOperationsAndWait")]
 		void CancelAllOperationsAndWait ();
 
-		[Export ("compareOptions", ArgumentSemantic.Assign)]
-		NSStringCompareOptions CompareOptions { get; set; }
+		[Export ("comparisonOptions")]
+		PSPDFTextComparisonOptions ComparisonOptions { get; set; }
 
 		[Export ("previewRange", ArgumentSemantic.Assign)]
 		NSRange PreviewRange { get; set; }

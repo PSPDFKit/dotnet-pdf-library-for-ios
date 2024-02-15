@@ -975,4 +975,10 @@ namespace PSPDFKit.UI {
 		HorizontalBar,
 		ContextMenu,
 	}
+
+	[Native]
+	public enum PSPDFMainToolbarMode : long {
+		NavigationBar,
+		Ornament,
+	}
 }
