@@ -2,6 +2,8 @@
 
 using System.Net.Http;
 using System.Linq;
+using System.Xml;
+using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 
 var IOSVERSION = Argument("iosversion", "13.3.0");
@@ -32,6 +34,10 @@ Task ("DownloadDeps")
 
 		UnzipFile ("./cache/ios.zip", "./cache/ios");
 		UnzipFile ("./cache/instant.zip", "./cache/ios");
+
+		ProcessXCFramework ("./cache/ios/PSPDFKit.xcframework");
+		ProcessXCFramework ("./cache/ios/PSPDFKitUI.xcframework");
+		ProcessXCFramework ("./cache/ios/Instant.xcframework");
 
 		CopyDir ("./cache/ios/PSPDFKit.xcframework", "./PSPDFKit.dotnet.iOS.Model/PSPDFKit.xcframework");
 		CopyDir ("./cache/ios/PSPDFKitUI.xcframework", "./PSPDFKit.dotnet.iOS.UI/PSPDFKitUI.xcframework");
@@ -228,6 +234,39 @@ string GetGitShortCommit ()
 		RedirectStandardOutput = true
 	}, out var lines);
 	return lines.FirstOrDefault ();
+}
+
+void ProcessXCFramework (string path)
+{
+	Nuke ($"{path}/xros-arm64");
+	Nuke ($"{path}/xros-arm64_x86_64-simulator");
+	Nuke ($"{path}/_CodeSignature");
+
+	// Remove the xros from the Info.plist
+	var infoPath = $"{path}/Info.plist";
+	var doc = XDocument.Load (infoPath);
+
+	var dictEntries = doc.Descendants ("dict").ToList ();
+	foreach (var dict in dictEntries) {
+		var supportedPlatformElements = dict.Elements ("key")
+			.Where (k => k.Value == "SupportedPlatform")
+			.Select (k => k.NextNode as XElement);
+
+		foreach (var element in supportedPlatformElements) {
+			if (element != null && element.Value == "xros")
+				dict.Remove ();
+		}
+	}
+
+	var settings = new XmlWriterSettings {
+		Indent = true,
+		IndentChars = "\t",
+		NewLineOnAttributes = false,
+	};
+
+	using var writer = XmlWriter.Create (infoPath, settings);
+	doc.DocumentType.InternalSubset = null;
+	doc.Save (writer);
 }
 
 RunTarget (target);
