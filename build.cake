@@ -6,7 +6,7 @@ using System.Xml;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 
-var IOSVERSION = Argument("iosversion", "13.3.0");
+var IOSVERSION = Argument("iosversion", "13.3.1");
 var IOS_SERVICERELEASE_VERSION = "0"; // This is combined with the IOSVERSION variable for the NuGet Package version
 
 var target = Argument ("target", "Default");
