@@ -6534,6 +6534,9 @@ namespace PSPDFKit.Model {
 		[NullAllowed, Export ("unmodifiedURL", ArgumentSemantic.Copy)]
 		NSUrl UnmodifiedUrl { get; }
 
+		[NullAllowed, Export ("invalidURLString", ArgumentSemantic.Copy)]
+		string InvalidUrlString { get; }
+
 		[Export ("updateURLWithAnnotationManager:")]
 		bool UpdateUrl (PSPDFAnnotationManager annotationManager);
 
