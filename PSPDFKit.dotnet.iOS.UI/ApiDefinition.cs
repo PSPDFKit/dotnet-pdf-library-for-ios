@@ -6585,6 +6585,9 @@ namespace PSPDFKit.UI {
 
 		[Export ("pitchMultiplier")]
 		float PitchMultiplier { get; set; }
+
+		[Export ("prefersAssistiveTechnologySettings")]
+		bool PrefersAssistiveTechnologySettings { get; set; }
 	}
 
 	[Static]

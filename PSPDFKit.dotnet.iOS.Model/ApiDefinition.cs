@@ -7039,11 +7039,6 @@ namespace PSPDFKit.Model {
 		NSData Data { get; }
 	}
 
-	[BaseType (typeof (NSObject))]
-	interface PSPDFBlankSignatureContents : PSPDFSignatureContents {
-
-	}
-
 	interface IPSPDFSignatureContents { }
 
 	[Protocol]
