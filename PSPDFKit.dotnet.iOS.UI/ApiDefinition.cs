@@ -2710,6 +2710,9 @@ namespace PSPDFKit.UI {
 		[Export ("subtitleForAnnotationsOptions:sharingConfiguration:")]
 		[return: NullAllowed]
 		string GetSubtitleForAnnotationsOptions (PSPDFDocumentSharingAnnotationOptions option, PSPDFDocumentSharingConfiguration sharingConfiguration);
+
+		[Export ("title")]
+		string Title { get; set; }
 	}
 
 	interface IPSPDFDocumentViewControllerDelegate { }
@@ -7854,8 +7857,12 @@ namespace PSPDFKit.UI {
 		[Export ("pdfViewController:willScheduleRenderTaskForPageView:")]
 		void WillScheduleRenderTask (PSPDFViewController pdfController, PSPDFPageView pageView);
 
+		[Obsolete ("Deprecated in PSPDFKit 13 for iOS. Use the similar method with an error parameter instead.")]
 		[Export ("pdfViewController:didFinishRenderTaskForPageView:")]
 		void DidFinishRenderTask (PSPDFViewController pdfController, PSPDFPageView pageView);
+
+		[Export ("pdfViewController:didFinishRenderTaskForPageView:error:")]
+		void DidFinishRenderTask (PSPDFViewController pdfController, PSPDFPageView pageView, [NullAllowed] NSError error);
 
 		[Export ("pdfViewController:didUpdateContentImageForPageView:isPlaceholder:")]
 		void DidUpdateContentImage (PSPDFViewController pdfController, PSPDFPageView pageView, bool placeholder);
@@ -7954,7 +7961,7 @@ namespace PSPDFKit.UI {
 
 		[Export ("pdfViewController:menuForImage:onPageView:appearance:suggestedMenu:")]
 		UIMenu GetMenuForImage (PSPDFViewController sender, PSPDFImageInfo image, PSPDFPageView pageView, PSPDFEditMenuAppearance appearance, UIMenu suggestedMenu);
-
+		
 		[Obsolete ("Use 'pdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' or 'pdfViewController(_:menuForCreatingAnnotationAt:onPageView:appearance:suggestedMenu:)' instead.")]
 		[Export ("pdfViewController:shouldShowMenuItems:atSuggestedTargetRect:forAnnotations:inRect:onPageView:")]
 		PSPDFMenuItem [] ShouldShowMenuItemsForAnnotations (PSPDFViewController pdfController, PSPDFMenuItem [] menuItems, CGRect rect, [NullAllowed] PSPDFAnnotation [] annotations, CGRect annotationRect, PSPDFPageView pageView);

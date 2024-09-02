@@ -910,18 +910,6 @@ namespace PSPDFKit.UI {
 		System,
 	}
 
-	[Flags, NoTV]
-	[Native]
-	public enum UIInterfaceOrientationMask : ulong {
-		Portrait = 1 << 1,
-		LandscapeLeft = 1 << 4,
-		LandscapeRight = 1 << 3,
-		PortraitUpsideDown = 1 << 2,
-		Landscape = LandscapeLeft | LandscapeRight,
-		All = Portrait | LandscapeLeft | LandscapeRight | PortraitUpsideDown,
-		AllButUpsideDown = Portrait | LandscapeLeft | LandscapeRight,
-	}
-
 	[Obsolete]
 	[Native]
 	public enum PSPDFContextMenuOption : long {

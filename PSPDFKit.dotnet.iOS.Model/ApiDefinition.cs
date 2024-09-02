@@ -2959,6 +2959,9 @@ namespace PSPDFKit.Model {
 		[Export ("defaultMeasurementValueConfiguration")]
 		[NullAllowed]
 		PSPDFMeasurementValueConfiguration DefaultMeasurementValueConfiguration { get; set; }
+
+		[Export ("addAnnotationFromInstantJSON:attachmentDataProvider:error:")]
+		PSPDFAnnotation AddAnnotation (NSData instantJSON, [NullAllowed] IPSPDFDataProviding attachmentDataProvider, [NullAllowed] out NSError error);
 	}
 
 	interface IPSPDFDocumentProviderDelegate { }

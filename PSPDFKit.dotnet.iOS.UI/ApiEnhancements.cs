@@ -30,7 +30,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFAnnotationTableViewController {
 
 		public PSPDFAnnotationStringUI [] VisibleAnnotationTypes {
-			get => WeakVisibleAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray ();
+			get => WeakVisibleAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFAnnotationStringUI>();
 			set => WeakVisibleAnnotationTypes = value == null ? null : new NSSet<NSString> (value.Select (x => x.GetConstant ())?.ToArray ());
 		}
 
@@ -43,7 +43,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFAnnotationTableViewController {
 
 		public PSPDFAnnotationStringUI [] EditableAnnotationTypesUI {
-			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray ();
+			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFAnnotationStringUI>();
 			set => WeakEditableAnnotationTypes = value == null ? null : new NSSet<NSString> (value.Select (x => x.GetConstant ())?.ToArray ());
 		}
 	}
@@ -51,7 +51,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFAnnotationToolbar {
 
 		public PSPDFAnnotationStringUI [] EditableAnnotationTypes {
-			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray ();
+			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFAnnotationStringUI>();
 			set => WeakEditableAnnotationTypes = value == null ? null : new NSSet<NSString> (value.Select (x => x.GetConstant ())?.ToArray ());
 		}
 	}
@@ -59,7 +59,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFConfigurationBuilder {
 
 		public PSPDFAnnotationStringUI [] EditableAnnotationTypes {
-			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray ();
+			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFAnnotationStringUI>();
 			set => WeakEditableAnnotationTypes = value == null ? null : new NSSet<NSString> (value.Select (x => x.GetConstant ())?.ToArray ());
 		}
 	}
@@ -67,7 +67,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFConfiguration {
 
 		public PSPDFAnnotationStringUI [] EditableAnnotationTypes {
-			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray ();
+			get => WeakEditableAnnotationTypes?.ToArray ()?.Select (x => PSPDFAnnotationStringUIExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFAnnotationStringUI>();
 		}
 	}
 
@@ -99,7 +99,7 @@ namespace PSPDFKit.UI {
 		}
 
 		public PSPDFDocumentInfoOption [] AvailableControllerOptions {
-			get => _AvailableControllerOptions?.Select (x => PSPDFDocumentInfoOptionExtensions.GetValue (x))?.ToArray ();
+			get => _AvailableControllerOptions?.Select (x => PSPDFDocumentInfoOptionExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFDocumentInfoOption>();
 			set => _AvailableControllerOptions = value?.Select (x => x.GetConstant ())?.ToArray ();
 		}
 	}
@@ -138,7 +138,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFThumbnailViewController {
 
 		public PSPDFThumbnailViewFilter [] FilterOptions {
-			get => WeakFilterOptions?.Select (x => PSPDFThumbnailViewFilterExtensions.GetValue (x))?.ToArray ();
+			get => WeakFilterOptions?.Select (x => PSPDFThumbnailViewFilterExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFThumbnailViewFilter>();
 			set => WeakFilterOptions = value?.Select (x => x.GetConstant ())?.ToArray ();
 		}
 
@@ -169,7 +169,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFDocumentSharingConfigurationBuilder {
 
 		public PSPDFActivityType [] ExcludedActivityTypes {
-			get => WeakExcludedActivityTypes?.Select (x => PSPDFActivityTypeExtensions.GetValue (x))?.ToArray ();
+			get => WeakExcludedActivityTypes?.Select (x => PSPDFActivityTypeExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFActivityType>();
 			set => WeakExcludedActivityTypes = value?.Select (x => x.GetConstant ())?.ToArray ();
 		}
 	}
@@ -177,7 +177,7 @@ namespace PSPDFKit.UI {
 	public partial class PSPDFDocumentSharingConfiguration {
 
 		public PSPDFActivityType [] ExcludedActivityTypes {
-			get => WeakExcludedActivityTypes?.Select (x => PSPDFActivityTypeExtensions.GetValue (x))?.ToArray ();
+			get => WeakExcludedActivityTypes?.Select (x => PSPDFActivityTypeExtensions.GetValue (x))?.ToArray () ?? Array.Empty<PSPDFActivityType>();
 		}
 	}
 
