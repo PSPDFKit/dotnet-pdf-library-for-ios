@@ -1,6 +1,6 @@
 # PSPDFKit.NET (iOS)
 
-- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 13.8.0
+- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 13.9.1
 
 #### PSPDFKit
 
