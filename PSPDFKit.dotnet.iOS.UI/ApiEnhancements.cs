@@ -118,23 +118,7 @@ namespace PSPDFKit.UI {
 			throw new InvalidOperationException ("'T' must be 'UIToolbar' or 'UINavigationBar' or 'UIView'.");
 		}
 	}
-
-	public partial class PSPDFMenuItem {
-
-		public static bool AllowImagesForMenuItems {
-			get {
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (PSPDFKitGlobal.DlPath, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "PSPDFAllowImagesForMenuItems");
-				return Convert.ToBoolean (Marshal.ReadByte (ptr));
-			}
-			set {
-				IntPtr RTLD_MAIN_ONLY = Dlfcn.dlopen (PSPDFKitGlobal.DlPath, 0);
-				IntPtr ptr = Dlfcn.dlsym (RTLD_MAIN_ONLY, "PSPDFAllowImagesForMenuItems");
-				Marshal.WriteByte (ptr, Convert.ToByte (value));
-			}
-		}
-	}
-
+	
 	public partial class PSPDFThumbnailViewController {
 
 		public PSPDFThumbnailViewFilter [] FilterOptions {
