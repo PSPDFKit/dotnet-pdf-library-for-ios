@@ -3269,16 +3269,8 @@ namespace PSPDFKit.UI {
 		CGSize GetPreferredSizeFitting (CGSize availableSize, PSPDFFlexibleToolbarPosition position);
 
 		[Obsolete ("Use 'UIButton.Menu' to add context menus to buttons instead.")]
-		[Export ("showMenuWithItems:target:animated:")]
-		void ShowMenu (PSPDFMenuItem [] menuItems, UIView target, bool animated);
-
-		[Obsolete ("Use 'UIButton.Menu' to add context menus to buttons instead.")]
 		[Export ("showMenuForCollapsedButtons:fromButton:animated:")]
 		void ShowMenuForCollapsedButtons (UIButton [] buttons, UIButton sourceButton, bool animated);
-
-		[Obsolete ("Use 'UIButton.Menu' to add context menus to buttons instead.")]
-		[Export ("menuItemForButton:")]
-		PSPDFMenuItem GetMenuItem (UIButton button);
 	}
 
 	interface IPSPDFFlexibleToolbarContainerDelegate { }
@@ -4655,48 +4647,6 @@ namespace PSPDFKit.UI {
 		UIImage PlayButtonImage { get; set; }
 	}
 
-	[Obsolete ("Use the modern menu system instead.")]
-	[BaseType (typeof (UIMenuItem))]
-	interface PSPDFMenuItem {
-
-		[Export ("initWithTitle:block:")]
-		NativeHandle Constructor (string title, Action action);
-
-		[Export ("initWithTitle:block:identifier:")]
-		NativeHandle Constructor (string title, Action action, [NullAllowed] string identifier);
-
-		[Export ("initWithTitle:image:block:identifier:")]
-		NativeHandle Constructor (string title, [NullAllowed] UIImage image, Action action, [NullAllowed] string identifier);
-
-		[Export ("initWithTitle:image:block:identifier:allowImageColors:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (string title, [NullAllowed] UIImage image, Action action, [NullAllowed] string identifier, bool allowImageColors);
-
-		[Export ("enabled")]
-		bool Enabled { [Bind ("isEnabled")] get; set; }
-
-		[Export ("shouldInvokeAutomatically")]
-		bool ShouldInvokeAutomatically { get; set; }
-
-		[NullAllowed, Export ("identifier")]
-		string Identifier { get; }
-
-		[NullAllowed, Export ("ps_image", ArgumentSemantic.Strong)]
-		UIImage PsImage { get; set; }
-
-		[Export ("actionBlock", ArgumentSemantic.Copy)]
-		Action ActionHandler { get; set; }
-
-		[Static]
-		[Export ("installMenuHandlerForObject:")]
-		void InstallMenuHandler (NSObject @object);
-
-		// PSPDFMenuItem (PSPDFAnalytics) Category
-
-		[Export ("performBlock")]
-		void PerformHandler ();
-	}
-
 	interface IPSPDFMultiDocumentListControllerDelegate { }
 
 #if NET
@@ -5300,13 +5250,6 @@ namespace PSPDFKit.UI {
 
 	}
 
-	interface PSPDFAnnotationCreateActionDidInsertNotificationEventArgs {
-
-		[Obsolete]
-		[Export ("PSPDFAnnotationCreateActionInsertedAnnotationsKey")]
-		PSPDFAnnotation [] InsertedAnnotations { get; }
-	}
-
 	[BaseType (typeof (UIView))]
 	[DisableDefaultCtor]
 	interface PSPDFPageView : IPSPDFRenderTaskDelegate, PSPDFResizableViewDelegate, IPSPDFOverridable, PSPDFAnnotationStyleViewControllerDelegate, PSPDFFontPickerViewControllerDelegate, PSPDFLinkAnnotationEditingContainerViewControllerDelegate, PSPDFNoteAnnotationViewControllerDelegate, PSPDFSignedFormElementViewControllerDelegate, PSPDFTextSelectionViewDelegate {
@@ -5314,11 +5257,6 @@ namespace PSPDFKit.UI {
 		[Field ("PSPDFPageViewSelectedAnnotationsDidChangeNotification", PSPDFKitGlobal.LibraryPath)]
 		[Notification]
 		NSString SelectedAnnotationsDidChangeNotification { get; }
-
-		[Obsolete]
-		[Field ("PSPDFAnnotationCreateActionDidInsertNotification", PSPDFKitGlobal.LibraryPath)]
-		[Notification (typeof (PSPDFAnnotationCreateActionDidInsertNotificationEventArgs))]
-		NSString CreateActionDidInsertNotification { get; }
 
 		[NullAllowed, Export ("presentationContext", ArgumentSemantic.Weak)]
 		IPSPDFPresentationContext PresentationContext { get; }
@@ -5492,11 +5430,6 @@ namespace PSPDFKit.UI {
 
 		// PSPDFPageView (AnnotationMenu) Category
 
-		[Obsolete]
-		[Export ("textSelectionMenuItemForCreatingAnnotationWithType:")]
-		[return: NullAllowed]
-		PSPDFMenuItem GetTextSelectionMenuItemForCreatingAnnotation ([BindAs (typeof (PSPDFAnnotationStringUI))] NSString annotationString);
-
 		[Export ("showSignatureControllerAtRect:withTitle:signatureFormElement:options:animated:")]
 		void ShowSignatureController (CGRect viewRect, [NullAllowed] string title, [NullAllowed] PSPDFSignatureFormElement signatureFormElement, [NullAllowed] NSDictionary options, bool animated);
 
@@ -5557,26 +5490,6 @@ namespace PSPDFKit.UI {
 		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentLinkActionSheet(for:options:animated:completion:)' instead.")]
 		[Export ("showLinkPreviewActionSheetForAnnotation:fromRect:animated:")]
 		bool ShowLinkPreviewActionSheet (PSPDFLinkAnnotation annotation, CGRect viewRect, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.CreateAnnotationMenuGroups' or 'PDFViewControllerDelegate.PdfViewController(_:menuForCreatingAnnotationAt:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("menuItemsForNewAnnotationAtPoint:")]
-		PSPDFMenuItem [] GetMenuItemsForNewAnnotation (CGPoint point);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFViewControllerDelegate.PdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("menuItemsForAnnotations:")]
-		PSPDFMenuItem [] GetMenuItemsForAnnotations (PSPDFAnnotation [] annotations);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.annotationMenuConfiguration.colorChoices' or 'PDFViewControllerDelegate.pdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("colorMenuItemsForAnnotation:")]
-		PSPDFMenuItem [] GetColorMenuItems (PSPDFAnnotation annotation);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.annotationMenuConfiguration.colorChoices' or 'PDFViewControllerDelegate.pdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("fillColorMenuItemsForAnnotation:")]
-		PSPDFMenuItem [] GetFillColorMenuItems (PSPDFAnnotation annotation);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.annotationMenuConfiguration.alphaChoices' or 'PDFViewControllerDelegate.pdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("opacityMenuItemForAnnotation:withColor:")]
-		PSPDFMenuItem GetOpacityMenuItem (PSPDFAnnotation annotation, [NullAllowed] UIColor color);
 
 		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.AnnotationMenuConfiguration.ColorChoices' instead.")]
 		[Export ("defaultColorOptionsForAnnotationType:")]
@@ -7961,18 +7874,6 @@ namespace PSPDFKit.UI {
 
 		[Export ("pdfViewController:menuForImage:onPageView:appearance:suggestedMenu:")]
 		UIMenu GetMenuForImage (PSPDFViewController sender, PSPDFImageInfo image, PSPDFPageView pageView, PSPDFEditMenuAppearance appearance, UIMenu suggestedMenu);
-		
-		[Obsolete ("Use 'pdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' or 'pdfViewController(_:menuForCreatingAnnotationAt:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("pdfViewController:shouldShowMenuItems:atSuggestedTargetRect:forAnnotations:inRect:onPageView:")]
-		PSPDFMenuItem [] ShouldShowMenuItemsForAnnotations (PSPDFViewController pdfController, PSPDFMenuItem [] menuItems, CGRect rect, [NullAllowed] PSPDFAnnotation [] annotations, CGRect annotationRect, PSPDFPageView pageView);
-
-		[Obsolete]
-		[Export ("pdfViewController:shouldShowMenuItems:atSuggestedTargetRect:forSelectedText:inRect:onPageView:")]
-		PSPDFMenuItem [] ShouldShowMenuItemsForSelectedText (PSPDFViewController pdfController, PSPDFMenuItem [] menuItems, CGRect rect, string selectedText, CGRect textRect, PSPDFPageView pageView);
-
-		[Obsolete]
-		[Export ("pdfViewController:shouldShowMenuItems:atSuggestedTargetRect:forSelectedImage:inRect:onPageView:")]
-		PSPDFMenuItem [] ShouldShowMenuItemsForSelectedImage (PSPDFViewController pdfController, PSPDFMenuItem [] menuItems, CGRect rect, PSPDFImageInfo selectedImage, CGRect textRect, PSPDFPageView pageView);
 	}
 
 	interface IPSPDFViewModePresenter { }
