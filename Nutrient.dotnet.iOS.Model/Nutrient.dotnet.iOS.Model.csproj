@@ -17,7 +17,7 @@
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH d/b/a Nutrient</Authors>
     <Owners>PSPDFKit GmbH d/b/a Nutrient</Owners>
-    <Copyright>PSPDFKit GmbH d/b/a Nutrient. Copyright 2010-2023</Copyright>
+    <Copyright>PSPDFKit GmbH d/b/a Nutrient. Copyright 2010-2025</Copyright>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://nutrient.io/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
