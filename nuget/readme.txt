@@ -1,16 +1,16 @@
-PSPDFKit.NET (iOS)
+Nutrient.NET (iOS)
 
-The PSPDFKit SDK is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
+The NUtrient SDK is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
 
-PSPDFKit Instant adds real-time collaboration features to seamlessly share, edit, and annotate PDF documents.
+NUtrient Instant adds real-time collaboration features to seamlessly share, edit, and annotate PDF documents.
 
 ## Setup
 
-PSPDFKit offers support via https://pspdfkit.com/support/request/.
+PSPDFKit offers support via https://nutrient.io/support/request/.
 
-Are you evaluating our SDK? That's great, we're happy to help out! To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
+Are you evaluating our SDK? That's great, we're happy to help out! To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://nutrient.io/contact-sales/
 
-Visit https://pspdfkit.com/guides/ios/dotnet/ for more information on how to setup and use the SDK.
+Visit https://nutrient.io/guides/ios/dotnet/ for more information on how to setup and use the SDK.
 
 ## Examples
 

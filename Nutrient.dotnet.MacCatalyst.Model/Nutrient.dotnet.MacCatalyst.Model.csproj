@@ -11,19 +11,19 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.MacCatalyst.Model</PackageId>
-    <Title>PSPDFKit.NET (iOS) - MacCatalyst Model</Title>
-    <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the iOS PDF SDK made for you.</Summary>
+    <PackageId>Nutrient.dotnet.MacCatalyst.Model</PackageId>
+    <Title>Nutrient.NET (iOS) - MacCatalyst Model</Title>
+    <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. Nutrient — the iOS PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
-    <Authors>PSPDFKit GmbH</Authors>
-    <Owners>PSPDFKit GmbH</Owners>
-    <Copyright>PSPDFKit GmbH. Copyright 2010-2023</Copyright>
+    <Authors>PSPDFKit GmbH d/b/a Nutrient</Authors>
+    <Owners>PSPDFKit GmbH d/b/a Nutrient</Owners>
+    <Copyright>PSPDFKit GmbH d/b/a Nutrient. Copyright 2010-2023</Copyright>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://pspdfkit.com/</PackageProjectUrl>
+    <PackageProjectUrl>https://nutrient.io/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
-    <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
+    <PackageReleaseNotes>For changelog go to: https://nutrient.io/changelog/ios/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-ios</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
@@ -35,25 +35,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="..\PSPDFKit.dotnet.iOS.Model\ApiDefinition.cs">
+    <ObjcBindingApiDefinition Include="..\Nutrient.dotnet.iOS.Model\ApiDefinition.cs">
       <Link>ApiDefinition.cs</Link>
     </ObjcBindingApiDefinition>
-    <ObjcBindingApiDefinition Include="..\PSPDFKit.dotnet.iOS.Model\Enums.cs">
+    <ObjcBindingApiDefinition Include="..\Nutrient.dotnet.iOS.Model\Enums.cs">
       <Link>Enums.cs</Link>
     </ObjcBindingApiDefinition>
-    <ObjcBindingCoreSource Include="..\PSPDFKit.dotnet.iOS.Model\LibraryConstant.cs">
+    <ObjcBindingCoreSource Include="..\Nutrient.dotnet.iOS.Model\LibraryConstant.cs">
       <Link>LibraryConstant.cs</Link>
     </ObjcBindingCoreSource>
-    <ObjcBindingCoreSource Include="..\PSPDFKit.dotnet.iOS.Model\Structs.cs">
+    <ObjcBindingCoreSource Include="..\Nutrient.dotnet.iOS.Model\Structs.cs">
       <Link>Structs.cs</Link>
     </ObjcBindingCoreSource>
-    <Compile Include="..\PSPDFKit.dotnet.iOS.Model\ApiEnhancements.cs">
+    <Compile Include="..\Nutrient.dotnet.iOS.Model\ApiEnhancements.cs">
       <Link>ApiEnhancements.cs</Link>
     </Compile>
-    <Compile Include="..\PSPDFKit.dotnet.iOS.Model\Metadata.cs">
+    <Compile Include="..\Nutrient.dotnet.iOS.Model\Metadata.cs">
       <Link>Metadata.cs</Link>
     </Compile>
-    <NativeReference Include="..\PSPDFKit.dotnet.iOS.Model\PSPDFKit.xcframework">
+    <NativeReference Include="..\Nutrient.dotnet.iOS.Model\PSPDFKit.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>true</SmartLink>
     </NativeReference>

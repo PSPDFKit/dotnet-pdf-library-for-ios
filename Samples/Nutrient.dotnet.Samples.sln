@@ -15,19 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bindings", "Bindings", "{C0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{DF938BA2-2DD2-4B8B-95D8-1B8BC070FBDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.iOS.Model", "..\PSPDFKit.dotnet.iOS.Model\PSPDFKit.dotnet.iOS.Model.csproj", "{2E4318D4-9FDE-4228-95F9-1BD9EC98876E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrient.dotnet.iOS.Model", "..\Nutrient.dotnet.iOS.Model\Nutrient.dotnet.iOS.Model.csproj", "{2E4318D4-9FDE-4228-95F9-1BD9EC98876E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.iOS.UI", "..\PSPDFKit.dotnet.iOS.UI\PSPDFKit.dotnet.iOS.UI.csproj", "{1C759B47-B125-4B12-A646-1FD60C65EE1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrient.dotnet.iOS.UI", "..\Nutrient.dotnet.iOS.UI\Nutrient.dotnet.iOS.UI.csproj", "{1C759B47-B125-4B12-A646-1FD60C65EE1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.iOS.Instant", "..\PSPDFKit.dotnet.iOS.Instant\PSPDFKit.dotnet.iOS.Instant.csproj", "{B6E0258F-4F14-42CC-AEAA-DE2843DB48CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrient.dotnet.iOS.Instant", "..\Nutrient.dotnet.iOS.Instant\Nutrient.dotnet.iOS.Instant.csproj", "{B6E0258F-4F14-42CC-AEAA-DE2843DB48CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MacCatalyst", "MacCatalyst", "{19D16141-5AB4-4F09-B64C-5DF887CED907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.MacCatalyst.Model", "..\PSPDFKit.dotnet.MacCatalyst.Model\PSPDFKit.dotnet.MacCatalyst.Model.csproj", "{27D9876A-1DB9-4E0B-A0B5-B072E0A797A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrient.dotnet.MacCatalyst.Model", "..\Nutrient.dotnet.MacCatalyst.Model\Nutrient.dotnet.MacCatalyst.Model.csproj", "{27D9876A-1DB9-4E0B-A0B5-B072E0A797A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.MacCatalyst.UI", "..\PSPDFKit.dotnet.MacCatalyst.UI\PSPDFKit.dotnet.MacCatalyst.UI.csproj", "{6CCDF77D-011A-4FAB-9F84-AA788D18FDA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrient.dotnet.MacCatalyst.UI", "..\Nutrient.dotnet.MacCatalyst.UI\Nutrient.dotnet.MacCatalyst.UI.csproj", "{6CCDF77D-011A-4FAB-9F84-AA788D18FDA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSPDFKit.dotnet.MacCatalyst.Instant", "..\PSPDFKit.dotnet.MacCatalyst.Instant\PSPDFKit.dotnet.MacCatalyst.Instant.csproj", "{901F59B5-82C2-489A-A3AD-40E7EA04B0CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nutrient.dotnet.MacCatalyst.Instant", "..\Nutrient.dotnet.MacCatalyst.Instant\Nutrient.dotnet.MacCatalyst.Instant.csproj", "{901F59B5-82C2-489A-A3AD-40E7EA04B0CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

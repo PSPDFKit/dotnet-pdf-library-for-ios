@@ -19,7 +19,7 @@
     </BundleResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PSPDFKit.dotnet.MacCatalyst.Model\PSPDFKit.dotnet.MacCatalyst.Model.csproj" />
-    <ProjectReference Include="..\..\PSPDFKit.dotnet.MacCatalyst.UI\PSPDFKit.dotnet.MacCatalyst.UI.csproj" />
+    <ProjectReference Include="..\..\Nutrient.dotnet.MacCatalyst.Model\Nutrient.dotnet.MacCatalyst.Model.csproj" />
+    <ProjectReference Include="..\..\Nutrient.dotnet.MacCatalyst.UI\Nutrient.dotnet.MacCatalyst.UI.csproj" />
   </ItemGroup>
 </Project>

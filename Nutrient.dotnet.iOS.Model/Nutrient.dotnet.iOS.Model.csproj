@@ -11,19 +11,19 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.iOS.Instant</PackageId>
-    <Title>PSPDFKit.NET (iOS) - Instant</Title>
-    <Summary>With PSPDFKit Instant, it's easier than ever to add real-time collaboration, efficient synchronization, offline support, and data security to your apps. Instant is made especially for PSPDFKit, works extremely fast, and is available on all platforms.</Summary>
+    <PackageId>Nutrient.dotnet.iOS.Model</PackageId>
+    <Title>Nutrient.NET (iOS) - Model</Title>
+    <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. Nutrient — the iOS PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
-    <Authors>PSPDFKit GmbH</Authors>
-    <Owners>PSPDFKit GmbH</Owners>
-    <Copyright>PSPDFKit GmbH. Copyright 2010-2023</Copyright>
+    <Authors>PSPDFKit GmbH d/b/a Nutrient</Authors>
+    <Owners>PSPDFKit GmbH d/b/a Nutrient</Owners>
+    <Copyright>PSPDFKit GmbH d/b/a Nutrient. Copyright 2010-2023</Copyright>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://pspdfkit.com/instant/</PackageProjectUrl>
+    <PackageProjectUrl>https://nutrient.io/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
-    <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
+    <PackageReleaseNotes>For changelog go to: https://nutrient.io/changelog/ios/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-ios</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
@@ -31,18 +31,17 @@
     <None Include="..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
     <None Include="..\nuget\icon.png" Pack="true" PackagePath="icon.png" />
     <None Include="..\nuget\readme.txt" Pack="true" PackagePath="readme.txt" />
+    <None Include="..\cache\ios\PSPDFKit.xcframework\ACKNOWLEDGEMENTS.md" Pack="true" PackagePath="ACKNOWLEDGEMENTS.md" />
   </ItemGroup>
 
   <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingApiDefinition Include="Enums.cs" />
+    <ObjcBindingCoreSource Include="LibraryConstant.cs" />
     <ObjcBindingCoreSource Include="Structs.cs" />
-    <NativeReference Include="Instant.xcframework">
+    <NativeReference Include="PSPDFKit.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>true</SmartLink>
     </NativeReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PSPDFKit.dotnet.iOS.Model\PSPDFKit.dotnet.iOS.Model.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\PSPDFKit.dotnet.iOS.UI\PSPDFKit.dotnet.iOS.UI.csproj" PrivateAssets="None" />
   </ItemGroup>
 </Project>

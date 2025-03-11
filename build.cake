@@ -22,8 +22,8 @@ Task ("DownloadDeps")
 			return;
 		}
 
-		var iosUrl = $"https://customers.pspdfkit.com/pspdfkit-ios/{IOSVERSION}.podspec.json";
-		var instantUrl = $"https://customers.pspdfkit.com/instant/{IOSVERSION}.podspec.json";
+		var iosUrl = $"https://my.nutrient.io/pspdfkit-ios/{IOSVERSION}.podspec.json";
+		var instantUrl = $"https://my.nutrient.io/instant/{IOSVERSION}.podspec.json";
 
 		var iosDlUrl = await ResolveDownloadUrl (iosUrl);
 		var instantDlUrl = await ResolveDownloadUrl (instantUrl);
@@ -39,21 +39,21 @@ Task ("DownloadDeps")
 		ProcessXCFramework ("./cache/ios/PSPDFKitUI.xcframework");
 		ProcessXCFramework ("./cache/ios/Instant.xcframework");
 
-		CopyDir ("./cache/ios/PSPDFKit.xcframework", "./PSPDFKit.dotnet.iOS.Model/PSPDFKit.xcframework");
-		CopyDir ("./cache/ios/PSPDFKitUI.xcframework", "./PSPDFKit.dotnet.iOS.UI/PSPDFKitUI.xcframework");
-		CopyDir ("./cache/ios/Instant.xcframework", "./PSPDFKit.dotnet.iOS.Instant/Instant.xcframework");
+		CopyDir ("./cache/ios/PSPDFKit.xcframework", "./Nutrient.dotnet.iOS.Model/PSPDFKit.xcframework");
+		CopyDir ("./cache/ios/PSPDFKitUI.xcframework", "./Nutrient.dotnet.iOS.UI/PSPDFKitUI.xcframework");
+		CopyDir ("./cache/ios/Instant.xcframework", "./Nutrient.dotnet.iOS.Instant/Instant.xcframework");
 	}
 );
 
 Task ("Build")
-	.Description ("Builds PSPDFKit.dotnet.*.*.dll', expects each of the xcframeworks to be available inside each of the './PSPDFKit.dotnet.iOS.*/' Directories\n")
+	.Description ("Builds Nutrient.dotnet.*.*.dll', expects each of the xcframeworks to be available inside each of the './Nutrient.dotnet.iOS.*/' Directories\n")
 	.Does (() => {
 		var iOSFullVersion = IOS_SERVICERELEASE_VERSION == "0" ? IOSVERSION : $"{IOSVERSION}.{IOS_SERVICERELEASE_VERSION}";
 
 		(string p, string xc) [] frameworks = {
-			("PSPDFKit.dotnet.iOS.Model", "PSPDFKit.xcframework"),
-			("PSPDFKit.dotnet.iOS.UI", "PSPDFKitUI.xcframework"),
-			("PSPDFKit.dotnet.iOS.Instant", "Instant.xcframework"),
+			("Nutrient.dotnet.iOS.Model", "PSPDFKit.xcframework"),
+			("Nutrient.dotnet.iOS.UI", "PSPDFKitUI.xcframework"),
+			("Nutrient.dotnet.iOS.Instant", "Instant.xcframework"),
 		};
 
 		foreach (var f in frameworks) {
@@ -69,16 +69,16 @@ Task ("Build")
 //			Verbosity = DotNetVerbosity.Diagnostic,
 			MSBuildSettings = msBuildSettings
 		};
-		DotNetBuild ("./PSPDFKit.dotnet.sln", dotNetBuildSettings);
+		DotNetBuild ("./Nutrient.dotnet.sln", dotNetBuildSettings);
 	});
 
 Task ("Default")
-	.Description ("Builds all PSPDFKit dlls.\n")
+	.Description ("Builds all Nutrient dlls.\n")
 	.IsDependentOn ("Clean")
 	.IsDependentOn ("DownloadDeps")
 	.IsDependentOn ("Build")
 	.Does (() => {
-		Information (@"DONE! You will find the PSPDFKit.*.dll's inside the 'bin\Release' directory of each project folder.");
+		Information (@"DONE! You will find the Nutrient.*.dll's inside the 'bin\Release' directory of each project folder.");
 	}
 );
 
@@ -102,7 +102,7 @@ Task ("NuGet")
 		//Verbosity = DotNeVerbosity.Diagnostic,
 	};
 
-	DotNetPack($"./PSPDFKit.dotnet.sln", dotNetPackSettings);
+	DotNetPack($"./Nutrient.dotnet.sln", dotNetPackSettings);
 });
 
 Task ("NuGet-Push")
@@ -116,12 +116,12 @@ Task ("NuGet-Push")
 	
 	// Get the path to the packages
 	var nugetPkgs = new [] {
-		$"./nuget/pkgs/PSPDFKit.dotnet.iOS.Model.{iOSFullVersion}.nupkg",
-		$"./nuget/pkgs/PSPDFKit.dotnet.iOS.UI.{iOSFullVersion}.nupkg",
-		$"./nuget/pkgs/PSPDFKit.dotnet.iOS.Instant.{iOSFullVersion}.nupkg",
-		$"./nuget/pkgs/PSPDFKit.dotnet.MacCatalyst.Model.{iOSFullVersion}.nupkg",
-		$"./nuget/pkgs/PSPDFKit.dotnet.MacCatalyst.UI.{iOSFullVersion}.nupkg",
-		$"./nuget/pkgs/PSPDFKit.dotnet.MacCatalyst.Instant.{iOSFullVersion}.nupkg",
+		$"./nuget/pkgs/Nutrient.dotnet.iOS.Model.{iOSFullVersion}.nupkg",
+		$"./nuget/pkgs/Nutrient.dotnet.iOS.UI.{iOSFullVersion}.nupkg",
+		$"./nuget/pkgs/Nutrient.dotnet.iOS.Instant.{iOSFullVersion}.nupkg",
+		$"./nuget/pkgs/Nutrient.dotnet.MacCatalyst.Model.{iOSFullVersion}.nupkg",
+		$"./nuget/pkgs/Nutrient.dotnet.MacCatalyst.UI.{iOSFullVersion}.nupkg",
+		$"./nuget/pkgs/Nutrient.dotnet.MacCatalyst.Instant.{iOSFullVersion}.nupkg",
 	};
 
 	foreach (var pkg in nugetPkgs) {
@@ -137,12 +137,12 @@ Task ("Clean")
 	.Description ("Cleans the build.\n")
 	.Does (() => {
 		var nukeFiles = new [] {
-			"./PSPDFKit.dotnet.iOS.Model.dll",
-			"./PSPDFKit.dotnet.iOS.UI.dll",
-			"./PSPDFKit.dotnet.iOS.Instant.dll",
-			"./PSPDFKit.dotnet.MacCatalyst.Model.dll",
-			"./PSPDFKit.dotnet.MacCatalyst.UI.dll",
-			"./PSPDFKit.dotnet.MacCatalyst.Instant.dll",
+			"./Nutrient.dotnet.iOS.Model.dll",
+			"./Nutrient.dotnet.iOS.UI.dll",
+			"./Nutrient.dotnet.iOS.Instant.dll",
+			"./Nutrient.dotnet.MacCatalyst.Model.dll",
+			"./Nutrient.dotnet.MacCatalyst.UI.dll",
+			"./Nutrient.dotnet.MacCatalyst.Instant.dll",
 		};
 
 		foreach (var file in nukeFiles) {
@@ -152,12 +152,12 @@ Task ("Clean")
 		}
 
 		var projdirs = new [] {
-			"./PSPDFKit.dotnet.iOS.Model",
-			"./PSPDFKit.dotnet.iOS.UI",
-			"./PSPDFKit.dotnet.iOS.Instant",
-			"./PSPDFKit.dotnet.MacCatalyst.Model",
-			"./PSPDFKit.dotnet.MacCatalyst.UI",
-			"./PSPDFKit.dotnet.MacCatalyst.Instant",
+			"./Nutrient.dotnet.iOS.Model",
+			"./Nutrient.dotnet.iOS.UI",
+			"./Nutrient.dotnet.iOS.Instant",
+			"./Nutrient.dotnet.MacCatalyst.Model",
+			"./Nutrient.dotnet.MacCatalyst.UI",
+			"./Nutrient.dotnet.MacCatalyst.Instant",
 			"./Samples/DotNetiOSSample",
 			"./Samples/DotNetMacCatalystSample",
 		};
@@ -177,9 +177,9 @@ Task ("Clean")
 			"./nuget/pkgs",
 			"./cache/ios",
 			"./cache",
-			"./PSPDFKit.dotnet.iOS.Model/PSPDFKit.xcframework",
-			"./PSPDFKit.dotnet.iOS.UI/PSPDFKitUI.xcframework",
-			"./PSPDFKit.dotnet.iOS.Instant/Instant.xcframework",
+			"./Nutrient.dotnet.iOS.Model/PSPDFKit.xcframework",
+			"./Nutrient.dotnet.iOS.UI/PSPDFKitUI.xcframework",
+			"./Nutrient.dotnet.iOS.Instant/Instant.xcframework",
 		};
 
 		foreach (var dir in nukedirs) {

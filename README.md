@@ -1,24 +1,23 @@
-# PSPDFKit.NET (iOS)
+# Nutrient.NET (iOS)
 
-- .NET for iOS, MacCatalyst Bindings for PSPDFKit version 14.4.0
+- .NET for iOS, MacCatalyst Bindings for Nutrient version 14.4.0
 
-#### PSPDFKit
+#### Nutrient
 
-The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
+The [Nutrient SDK](https://nutrient.io) is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
 
-[PSPDFKit Instant](https://pspdfkit.com/instant) adds real-time collaboration features to seamlessly share, edit, and annotate PDF documents.
+[Nutrient Instant](https://www.nutrient.io/guides/ios/instant-synchronization/) adds real-time collaboration features to seamlessly share, edit, and annotate PDF documents.
 
 #### Related
 
-- PSPDFKit.NET (Android): [PSPDFKit/dotnet-pdf-library-for-android](https://github.com/PSPDFKit/dotnet-pdf-library-for-android)
-- PSPDFKit.NET for mobiles (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
+- Nutrient.NET (Android): [PSPDFKit/dotnet-pdf-library-for-android](https://github.com/PSPDFKit/dotnet-pdf-library-for-android)
+- Nutrient.NET for mobiles (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
 
-## Support, Issues and License Questions
 
-PSPDFKit offers support via https://pspdfkit.com/support/request/.
+Nutrient offers support via https://nutrient.io/support/request/.
 
 Are you evaluating our SDK? That's great, we're happy to help out!
-To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
+To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://www.nutrient.io/contact-sales/
 
 Minimum Requirements
 ====================
@@ -36,21 +35,21 @@ Build Instructions
 
 1. Clone this repository to your computer.
 
-## Step 2 - Integrating PSPDFKit
+## Step 2 - Integrating Nutrient
 
-### Integrating PSPDFKit via NuGet (Recommended)
+### Integrating Nutrient via NuGet (Recommended)
 
 1. Right-Click on your project in Visual Studio and select "Manage NuGet Packages..."
-2. In the `Browse` section for "nuget.org" search for "PSPDFKit.dotnet":
+2. In the `Browse` section for "nuget.org" search for "Nutrient.dotnet":
 
 <img width="70%" src="Images/Add-NuGet-packages.png"/>
 
-3. Select the following two iOS packages: PSPDFKit.dotnet.iOS.Model and PSPDFKit.dotnet.iOS.UI.
+3. Select the following two iOS packages: Nutrient.dotnet.iOS.Model and Nutrient.dotnet.iOS.UI.
 4. Tap on "Add Packages" to add the NuGet packages to your project.
 
-Now you are done and can skip to [Using PSPDFKit in your project](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios#step-3---using-pspdfkit-in-your-project)!
+Now you are done and can skip to [Using Nutrient in your project](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios#step-3---using-nutrient-in-your-project)!
 
-### Integrating PSPDFKit by adding the DLLs (Advanced)
+### Integrating Nutrient by adding the DLLs (Advanced)
 #### Downloading required files
 
 To use this C# binding you can only build the binding project on macOS, you will need to obtain the full PSPDFKit xcframework files by doing either `./build.sh` and let the build script download the frameworks and build the bindings or by `./build.sh --target DownloadDeps` which will only download the required frameworks.
@@ -63,19 +62,19 @@ We are using [Cake](https://cakebuild.net) as our build system.
 
 1. Run `./build.sh` (macOS) command from the root directory in terminal.
 2. All the resulting dlls will be inside the `bin/` folder of each project directory.
-3. Go to **Step 3 - Using PSPDFKit in your project**.
+3. Go to **Step 3 - Using Nutrient in your project**.
 
 ### Using Visual Studio for Mac
 
 1. Run `./build.sh --target DownloadDeps` (macOS) command from the root directory in terminal.
-2. Open `PSPDFKit.dotnet.sln` located in the root folder.
+2. Open `Nutrient.dotnet.sln` located in the root folder.
 2. Build the binding projects inside the `iOS` or `Mac` solution folders.
 3. Get the dlls from the `bin` folder of each project.
-4. Go to **Step 3 - Using PSPDFKit in your project**.
+4. Go to **Step 3 - Using Nutrient in your project**.
 
-## Step 3 - Using PSPDFKit in your project
+## Step 3 - Using Nutrient in your project
 
-If you don't use nuget, add the generated PSPDFKit dlls as a reference to into your own .NET project and add the corresponding using statements depending on the dlls referenced into your project.
+If you don't use nuget, add the generated Nutrient dlls as a reference to into your own .NET project and add the corresponding using statements depending on the dlls referenced into your project.
 
 ```csharp
 using PSPDFKit.Model;
@@ -83,7 +82,7 @@ using PSPDFKit.UI;
 using PSPDFKit.Instant;
 ```
 
-Also you do need to set your **license key** early on in your `AppDelegate`, before accessing any other PSPDFKit classes. You can get your license key from your [customer portal](https://customers.pspdfkit.com/) if you haven't done so already. Pass `null` to use the trial version.
+Also you do need to set your **license key** early on in your `AppDelegate`, before accessing any other Nutrient classes. You can get your license key from your [customer portal](https://my.nutrient.io/) if you haven't done so already. Pass `null` to use the trial version.
 
 ```csharp
 public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
@@ -93,11 +92,11 @@ public override bool FinishedLaunching (UIApplication application, NSDictionary 
 }
 ```
 
-# PSPDFKit Instant
+# Nutrient Instant
 
-With PSPDFKit Instant, it’s easier than ever to add real-time collaboration features to your PSPDFKit-powered app, allowing your users to seamlessly share, edit, and annotate PDF documents across iOS, Android, and web. With just a few lines of code, PSPDFKit Instant gives your users a massive productivity boost.
+With Nutrient Instant, it's easier than ever to add real-time collaboration features to your Nutrient-powered app, allowing your users to seamlessly share, edit, and annotate PDF documents across iOS, Android, and web. With just a few lines of code, Nutrient Instant gives your users a massive productivity boost.
 
-For more information about Instant, please have a look at our [website](https://pspdfkit.com/instant/).
+For more information about NUtrient Instant, please have a look at our [website](https://www.nutrient.io/guides/ios/instant-synchronization/).
 
 # Examples
 
@@ -106,7 +105,7 @@ You can find two basic examples inside the Samples folder, porting the catalog i
 ## How to Run the Example Projects
 
 1. Do `./build.sh --target DownloadDeps` from inside the root folder.
-2. Open the `Samples/PSPDFKit.dotnet.Samples.sln` solution in Visual Studio.
+2. Open the `Samples/Nutrient.dotnet.Samples.sln` solution in Visual Studio.
 3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`").
 
 <img width="60%" src="Images/Project-setup.png"/>
@@ -133,16 +132,12 @@ If you want to remove lldb from your debug setup again you can simply run `rm ~/
 
 1. Launch your app in debug mode in Visual Studio for Mac.
 2. Open your Activity Monitor app.
-3. In the Activity Monitor app search for your app name in the search bar. To give an example, if I want to attach to our PSPDFCatalog example app I need to search for "PSPDFCatalog".
+3. In the Activity Monitor app search for your app name in the search bar. To give an example, if I want to attach to our NutrientCatalog example app I need to search for "NutrientCatalog".
 4. Double-Click on the process to view the information window.
-5. Now you need to identify the PID (Process ID) of your process. The PID is the number included in the round brackets in the window title, e.g. if the title says "PSPDFCatalog (73389)", then 73389 is your PID. Here's an example of how that looks:
+5. Now you need to identify the PID (Process ID) of your process. The PID is the number included in the round brackets in the window title, e.g. if the title says "NutrientCatalog (73389)", then 73389 is your PID. Here's an example of how that looks:
 
 <img width="50%" src="Images/pid.png"/>
 
 6. Now you need to open your Terminal app and enter the following command to attach lldb: `lldb -p YOUR-PID aux`. For the example case above this is what the full command would look like: `lldb -p 73389 aux`.
 7. Once lldb is set up in the terminal window, you can simply use it like you would in Xcode.
 8. To get a stack trace you need to type `bt all`.
-
-# Contributing
-
-Please ensure [you signed our CLA](https://pspdfkit.com/guides/web/current/miscellaneous/contributing/) so we can accept your contributions.
