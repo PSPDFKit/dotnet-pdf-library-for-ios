@@ -8,6 +8,7 @@
     <ProcessEnums>true</ProcessEnums>
     <NoBindingEmbedding>true</NoBindingEmbedding>
     <CompressBindingResourcePackage>true</CompressBindingResourcePackage>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup>
