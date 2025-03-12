@@ -1,5 +1,7 @@
 # PSPDFKit.NET (iOS)
 
+**Note:** As a part of our rebranding, these packages have been renamed to **Nutrient.dotnet.iOS** (https://www.nuget.org/packages?q=Nutrient.dotnet.iOS) and **Nutrient.dotnet.MacCatalyst** (https://www.nuget.org/packages?q=Nutrient.dotnet.MacCatalyst). Please use the new packages for future updates and support.
+
 - .NET for iOS, MacCatalyst Bindings for PSPDFKit version 14.4.0
 
 #### PSPDFKit
