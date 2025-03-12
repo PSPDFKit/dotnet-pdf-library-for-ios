@@ -1,5 +1,5 @@
-<Project>
+﻿<Project>
     <PropertyGroup>
-        <PSVersion>12.3.1</PSVersion>
+        <PSVersion>14.4.0.1+sha.3fcec67</PSVersion>
     </PropertyGroup>
 </Project>

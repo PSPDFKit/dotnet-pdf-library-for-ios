@@ -8,6 +8,7 @@
     <ProcessEnums>true</ProcessEnums>
     <NoBindingEmbedding>true</NoBindingEmbedding>
     <CompressBindingResourcePackage>true</CompressBindingResourcePackage>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -23,14 +24,16 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
-    <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      • Adds a note about renaming of package in the ReadMe file. Please use **Nutrient.dotnet.MacCatalyst.UI** (https://www.nuget.org/packages/Nutrient.dotnet.MacCatalyst.UI) for future updates and support.
+    </PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-ios</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
     <None Include="..\nuget\icon.png" Pack="true" PackagePath="icon.png" />
-    <None Include="..\nuget\readme.txt" Pack="true" PackagePath="readme.txt" />
+    <None Include="..\nuget\README.md" Pack="true" PackagePath="README.md" />
     <None Include="..\cache\ios\PSPDFKitUI.xcframework\ACKNOWLEDGEMENTS.md" Pack="true" PackagePath="ACKNOWLEDGEMENTS.md" />
   </ItemGroup>
 
