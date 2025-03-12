@@ -30,7 +30,7 @@
   <ItemGroup>
     <None Include="..\LICENSE.md" Pack="True" PackagePath="LICENSE.md" />
     <None Include="..\nuget\icon.png" Pack="True" PackagePath="icon.png" />
-    <None Include="..\nuget\readme.txt" Pack="True" PackagePath="readme.txt" />
+    <None Include="..\nuget\README.md" Pack="True" PackagePath="README.md" />
   </ItemGroup>
 
   <ItemGroup>
