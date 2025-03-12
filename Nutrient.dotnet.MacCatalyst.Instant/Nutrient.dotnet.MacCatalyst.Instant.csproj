@@ -8,48 +8,49 @@
     <ProcessEnums>true</ProcessEnums>
     <NoBindingEmbedding>true</NoBindingEmbedding>
     <CompressBindingResourcePackage>true</CompressBindingResourcePackage>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.MacCatalyst.Instant</PackageId>
-    <Title>PSPDFKit.NET (iOS) - MacCatalyst Instant</Title>
+    <PackageId>Nutrient.dotnet.MacCatalyst.Instant</PackageId>
+    <Title>Nutrient.NET (iOS) - MacCatalyst Instant</Title>
     <Summary>With PSPDFKit Instant, it's easier than ever to add real-time collaboration, efficient synchronization, offline support, and data security to your apps. Instant is made especially for PSPDFKit, works extremely fast, and is available on all platforms.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
-    <Authors>PSPDFKit GmbH</Authors>
-    <Owners>PSPDFKit GmbH</Owners>
-    <Copyright>PSPDFKit GmbH. Copyright 2010-2023</Copyright>
+    <Authors>PSPDFKit GmbH d/b/a Nutrient</Authors>
+    <Owners>PSPDFKit GmbH d/b/a Nutrient</Owners>
+    <Copyright>PSPDFKit GmbH d/b/a Nutrient. Copyright 2010-2025</Copyright>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://pspdfkit.com/instant/</PackageProjectUrl>
+    <PackageProjectUrl>https://www.nutrient.io/guides/ios/instant-synchronization/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-ios , ios , pdf , library , maui</PackageTags>
-    <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/ios/</PackageReleaseNotes>
+    <PackageReleaseNotes>For changelog go to: https://nutrient.io/changelog/ios/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-ios</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\LICENSE.md" Pack="True" PackagePath="LICENSE.md" />
     <None Include="..\nuget\icon.png" Pack="True" PackagePath="icon.png" />
-    <None Include="..\nuget\readme.txt" Pack="True" PackagePath="readme.txt" />
+    <None Include="..\nuget\README.md" Pack="True" PackagePath="README.md" />
   </ItemGroup>
 
   <ItemGroup>
-    <ObjcBindingApiDefinition Include="..\PSPDFKit.dotnet.iOS.Instant\ApiDefinition.cs">
+    <ObjcBindingApiDefinition Include="..\Nutrient.dotnet.iOS.Instant\ApiDefinition.cs">
       <Link>ApiDefinition.cs</Link>
     </ObjcBindingApiDefinition>
-    <ObjcBindingCoreSource Include="..\PSPDFKit.dotnet.iOS.Instant\Structs.cs">
+    <ObjcBindingCoreSource Include="..\Nutrient.dotnet.iOS.Instant\Structs.cs">
       <Link>Structs.cs</Link>
     </ObjcBindingCoreSource>
-    <Compile Include="..\PSPDFKit.dotnet.iOS.Instant\Metadata.cs">
+    <Compile Include="..\Nutrient.dotnet.iOS.Instant\Metadata.cs">
       <Link>Metadata.cs</Link>
     </Compile>
-    <NativeReference Include="..\PSPDFKit.dotnet.iOS.Instant\Instant.xcframework">
+    <NativeReference Include="..\Nutrient.dotnet.iOS.Instant\Instant.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>true</SmartLink>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PSPDFKit.dotnet.MacCatalyst.Model\PSPDFKit.dotnet.MacCatalyst.Model.csproj" PrivateAssets="None" />
-    <ProjectReference Include="..\PSPDFKit.dotnet.MacCatalyst.UI\PSPDFKit.dotnet.MacCatalyst.UI.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Nutrient.dotnet.MacCatalyst.Model\Nutrient.dotnet.MacCatalyst.Model.csproj" PrivateAssets="None" />
+    <ProjectReference Include="..\Nutrient.dotnet.MacCatalyst.UI\Nutrient.dotnet.MacCatalyst.UI.csproj" PrivateAssets="None" />
   </ItemGroup>
 </Project>

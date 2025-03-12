@@ -13,8 +13,8 @@
     <CreatePackage>false</CreatePackage>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PSPDFKit.dotnet.iOS.Model\PSPDFKit.dotnet.iOS.Model.csproj" />
-    <ProjectReference Include="..\..\PSPDFKit.dotnet.iOS.UI\PSPDFKit.dotnet.iOS.UI.csproj" />
+    <ProjectReference Include="..\..\Nutrient.dotnet.iOS.Model\Nutrient.dotnet.iOS.Model.csproj" />
+    <ProjectReference Include="..\..\Nutrient.dotnet.iOS.UI\Nutrient.dotnet.iOS.UI.csproj" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="..\Pdf\PSPDFKit QuickStart Guide.pdf">
