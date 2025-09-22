@@ -1,6 +1,6 @@
 # Nutrient.NET (iOS)
 
-- .NET for iOS, MacCatalyst Bindings for Nutrient version 14.11.0
+- .NET for iOS, MacCatalyst Bindings for Nutrient version 26.0.0
 
 #### Nutrient
 
