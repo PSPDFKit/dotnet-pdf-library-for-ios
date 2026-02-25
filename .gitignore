@@ -19,7 +19,6 @@ packages/
 nuget/pkgs/
 cache/
 nuget/pkgs/
-Directory.Build.props
 
 # Xcode
 #

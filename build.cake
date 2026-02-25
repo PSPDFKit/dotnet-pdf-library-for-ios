@@ -1,13 +1,19 @@
-#addin nuget:?package=Newtonsoft.Json&version=13.0.3
-
 using System.Net.Http;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 
-var IOSVERSION = Argument("iosversion", "26.0.0");
-var IOS_SERVICERELEASE_VERSION = "0"; // This is combined with the IOSVERSION variable for the NuGet Package version
+var NUTRIENT_VERSION = Argument<string>("nutrient-version", null);
+if (string.IsNullOrEmpty(NUTRIENT_VERSION))
+{
+	throw new ArgumentException("nutrient-version argument is required. Please provide it using --nutrient-version=X.X.X");
+}
+
+// Extract service release version from IOSVERSION if it exists (e.g. "10.1.2.3" -> "3")
+var versionParts = NUTRIENT_VERSION.Split('.');
+var IOSVERSION = string.Join(".", versionParts.Take(3));
+var IOS_SERVICERELEASE_VERSION = versionParts.Length == 4 ? versionParts[3] : "0"; // This is combined with the IOSVERSION variable for the NuGet Package version
 
 var target = Argument ("target", "Default");
 var NUGET_API_KEY = EnvironmentVariable("NUGET_API_KEY");
@@ -194,8 +200,8 @@ static HttpClient client = new HttpClient ();
 static async Task<string> ResolveDownloadUrl (string url)
 {
 	var json = await client.GetStringAsync (url);
-	var jobj = JObject.Parse (json);
-	return (string) jobj["source"]["http"];
+	var doc = JsonDocument.Parse (json);
+	return doc.RootElement.GetProperty ("source").GetProperty ("http").GetString ();
 }
 
 void LipoCreate (FilePath binaryPath, params FilePath [] thinBinaries)
@@ -269,4 +275,4 @@ void ProcessXCFramework (string path)
 	doc.Save (writer);
 }
 
-RunTarget (target);
+RunTarget(target);

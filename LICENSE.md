@@ -1,4 +1,4 @@
-All items and source code Copyright © 2010-2025 PSPDFKit GmbH d/b/a Nutrient.
+All items and source code Copyright © 2010-2026 PSPDFKit GmbH d/b/a Nutrient.
 
 The Nutrient SDK is a commercial product and requires a license to be used.
 

@@ -1,6 +1,6 @@
 # Nutrient.NET (iOS)
 
-- .NET for iOS, MacCatalyst Bindings for Nutrient version 26.0.0
+- .NET for iOS, MacCatalyst Bindings for Nutrient version 26.5.0
 
 #### Nutrient
 
@@ -10,8 +10,8 @@ The [Nutrient SDK](https://nutrient.io) is a framework that allows you to view, 
 
 #### Related
 
-- Nutrient.NET (Android): [PSPDFKit/dotnet-pdf-library-for-android](https://github.com/PSPDFKit/dotnet-pdf-library-for-android)
-- Nutrient.NET for mobiles (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
+- Nutrient .NET for Mobile (Android): [PSPDFKit/dotnet-pdf-library-for-android](https://github.com/PSPDFKit/dotnet-pdf-library-for-android)
+- Nutrient .NET for Mobile (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
 
 
 Nutrient offers support via https://nutrient.io/support/request/.
@@ -52,7 +52,7 @@ Now you are done and can skip to [Using Nutrient in your project](https://github
 ### Integrating Nutrient by adding the DLLs (Advanced)
 #### Downloading required files
 
-To use this C# binding you can only build the binding project on macOS, you will need to obtain the full PSPDFKit xcframework files by doing either `./build.sh` and let the build script download the frameworks and build the bindings or by `./build.sh --target DownloadDeps` which will only download the required frameworks.
+To use this C# binding you can only build the binding project on macOS, you will need to obtain the full PSPDFKit xcframework files by doing either `./build.sh  --nutrient-version=${NUTRIENT_VERSION}` and let the build script download the frameworks and build the bindings or by `./build.sh --nutrient-version=${NUTRIENT_VERSION} --target DownloadDeps` which will only download the required frameworks.
 
 ### Get your dlls
 
@@ -60,13 +60,13 @@ To use this C# binding you can only build the binding project on macOS, you will
 
 We are using [Cake](https://cakebuild.net) as our build system.
 
-1. Run `./build.sh` (macOS) command from the root directory in terminal.
+1. Run `./build.sh --nutrient-version=${NUTRIENT_VERSION}` (macOS) command from the root directory in terminal.
 2. All the resulting dlls will be inside the `bin/` folder of each project directory.
 3. Go to **Step 3 - Using Nutrient in your project**.
 
 ### Using Visual Studio for Mac
 
-1. Run `./build.sh --target DownloadDeps` (macOS) command from the root directory in terminal.
+1. Run `./build.sh  --nutrient-version=${NUTRIENT_VERSION} --target DownloadDeps` (macOS) command from the root directory in terminal.
 2. Open `Nutrient.dotnet.sln` located in the root folder.
 2. Build the binding projects inside the `iOS` or `Mac` solution folders.
 3. Get the dlls from the `bin` folder of each project.
@@ -104,7 +104,7 @@ You can find two basic examples inside the Samples folder, porting the catalog i
 
 ## How to Run the Example Projects
 
-1. Do `./build.sh --target DownloadDeps` from inside the root folder.
+1. Do `./build.sh --nutrient-version=${NUTRIENT_VERSION} --target DownloadDeps` from inside the root folder.
 2. Open the `Samples/Nutrient.dotnet.Samples.sln` solution in Visual Studio.
 3. Select the example project and device you want to run it on (alternatively you can also right-click on the project and select "Build `Project Name`").
 
@@ -126,7 +126,6 @@ Such valuable information includes a stack trace of the crash. Here's a quick st
 5. To get a stack trace you need to type `bt all`.
 
 If you want to remove lldb from your debug setup again you can simply run `rm ~/.mtouch-launch-with-lldb` in your Terminal.
-
 
 #### Simulator
 

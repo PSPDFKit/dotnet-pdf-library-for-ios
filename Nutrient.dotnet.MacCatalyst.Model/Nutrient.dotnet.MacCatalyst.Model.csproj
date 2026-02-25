@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-maccatalyst</TargetFramework>
-    <!-- <TargetFrameworks>net7.0-maccatalyst;net8.0-maccatalyst</TargetFrameworks> -->
+    <TargetFramework>net10.0-maccatalyst</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
@@ -31,7 +30,7 @@
   <ItemGroup>
     <None Include="..\LICENSE.md" Pack="True" PackagePath="LICENSE.md" />
     <None Include="..\nuget\icon.png" Pack="True" PackagePath="icon.png" />
-    <None Include="..\nuget\README.md" Pack="True" PackagePath="README.md" />
+    <None Include="..\nuget\maccatalyst\README.md" Pack="True" PackagePath="README.md" />
     <None Include="..\cache\ios\PSPDFKit.xcframework\ACKNOWLEDGEMENTS.md" Pack="True" PackagePath="ACKNOWLEDGEMENTS.md" />
   </ItemGroup>
 
