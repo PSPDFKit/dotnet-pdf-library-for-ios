@@ -198,35 +198,10 @@ namespace PSPDFKit.UI {
 	}
 
 	[Native]
-	public enum PSPDFTextSelectionMode : ulong {
-		Regular,
-		Simple,
-		Automatic,
-	}
-
-	[Native]
 	public enum PSPDFDrawCreateMode : ulong {
 		Separate,
 		MergeIfPossible,
 		Automatic,
-	}
-
-	[Obsolete ("Use 'UIAction.Identifier' or 'UIMenu.Identifier' in the modern menu system instead.")]
-	[Native]
-	[Flags]
-	public enum PSPDFTextSelectionMenuAction : ulong {
-		None = 0,
-		Search = 1uL << 0,
-		Define = 1uL << 1,
-		Wikipedia = 1uL << 2,
-		Speak = 1uL << 3,
-		Share = 1uL << 4,
-		Copy = 1uL << 5,
-		Markup = 1uL << 6,
-		Redact = 1uL << 7,
-		CreateLink = 1uL << 8,
-		AnnotationCreation = Markup | Redact | CreateLink,
-		All = ulong.MaxValue
 	}
 
 	[Native]
@@ -779,14 +754,6 @@ namespace PSPDFKit.UI {
 	public enum PSPDFPresentationHalfModalStyle : ulong {
 		Card,
 		System,
-	}
-
-	[Obsolete]
-	[Native]
-	public enum PSPDFContextMenuOption : long {
-		MenuOnly,
-		AllowPopovers,
-		PopoversOnly,
 	}
 
 	[Native]

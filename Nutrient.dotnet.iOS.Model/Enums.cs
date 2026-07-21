@@ -534,6 +534,8 @@ namespace PSPDFKit.Model {
 		PdfA = 1 << 20,
 		MeasurementTools = 1 << 21,
 		ContentEditing = 1 << 22,
+		OnDeviceAIAssistant = 1 << 26,
+		DisableAnalytics = 1 << 27,
 
 		All = ulong.MaxValue
 	}

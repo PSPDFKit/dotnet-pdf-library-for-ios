@@ -62,6 +62,12 @@ namespace PSPDFKit.Instant {
 		Invalid,
 	}
 
+	[Native]
+	public enum PSPDFInstantAnnotationOrdering : long {
+		Ascending = -1,
+		Descending = 1,
+	}
+
 	[Flags]
 	[Native]
 	public enum PSPDFInstantCacheEntryState : ulong {
@@ -100,6 +106,18 @@ namespace PSPDFKit.Instant {
 
 		[Field ("PSPDFInstantErrorSQLiteExtendedErrorCodeKey", PSPDFKitGlobal.LibraryPath)]
 		NSString SQLiteExtendedErrorCodeKey { get; }
+
+		[Field ("PSPDFInstantErrorPurgeErrorsByDocumentIDKey", PSPDFKitGlobal.LibraryPath)]
+		NSString PurgeErrorsByDocumentIDKey { get; }
+
+		[Field ("PSPDFInstantErrorAttachmentIDKey", PSPDFKitGlobal.LibraryPath)]
+		NSString AttachmentIdKey { get; }
+
+		[Field ("PSPDFInstantErrorAnnotationKey", PSPDFKitGlobal.LibraryPath)]
+		NSString AnnotationKey { get; }
+
+		[Field ("PSPDFInstantErrorIsRetriableKey", PSPDFKitGlobal.LibraryPath)]
+		NSString IsRetriableKey { get; }
 	}
 
 	interface PSPDFInstantErrorNotificationEventArgs {
@@ -237,6 +255,8 @@ namespace PSPDFKit.Instant {
 
 	interface IPSPDFInstantDocumentDescriptor : INativeObject { }
 
+	delegate PSPDFInstantAnnotationOrdering PSPDFInstantAnnotationOrderingComparator (PSPDFAnnotation firstAnnotation, PSPDFAnnotation secondAnnotation);
+
 	[Protocol]
 	interface PSPDFInstantDocumentDescriptor {
 
@@ -326,6 +346,14 @@ namespace PSPDFKit.Instant {
 		[Abstract]
 		[Export ("delayForSyncingLocalChanges")]
 		double DelayForSyncingLocalChanges { get; set; }
+
+		[Abstract]
+		[NullAllowed, Export ("annotationOrderingComparator", ArgumentSemantic.Copy)]
+		PSPDFInstantAnnotationOrderingComparator AnnotationOrderingComparator { get; set; }
+
+		[Abstract]
+		[Export ("invalidateAnnotationOrdering")]
+		void InvalidateAnnotationOrdering ();
 
 		[Abstract]
 		[Export ("startListeningForServerChanges")]

@@ -88,20 +88,11 @@ namespace PSPDFKit.Model {
 		[Field ("PSPDFActionOptionFullscreenKey", PSPDFKitLibraryPath.LibraryPath)]
 		NSString FullscreenKey { get; }
 
-		[Field ("PSPDFActionOptionOffsetKey", PSPDFKitLibraryPath.LibraryPath)]
-		NSString OffsetKey { get; }
-
 		[Field ("PSPDFActionOptionSizeKey", PSPDFKitLibraryPath.LibraryPath)]
 		NSString SizeKey { get; }
 
 		[Field ("PSPDFActionOptionPopoverKey", PSPDFKitLibraryPath.LibraryPath)]
 		NSString PopoverKey { get; }
-
-		[Field ("PSPDFActionOptionCoverKey", PSPDFKitLibraryPath.LibraryPath)]
-		NSString CoverKey { get; }
-
-		[Field ("PSPDFActionOptionPageKey", PSPDFKitLibraryPath.LibraryPath)]
-		NSString PageKey { get; }
 
 		[Field ("PSPDFActionOptionButtonKey", PSPDFKitLibraryPath.LibraryPath)]
 		NSString ButtonKey { get; }
@@ -1967,6 +1958,7 @@ namespace PSPDFKit.Model {
 
 	delegate void PSPDFDocumentSaveHandler (NSError error, PSPDFAnnotation [] savedAnnotations);
 	delegate void PSPDFDocumentGetAnnotationsByDetectingLinkTypesProgressHandler (PSPDFAnnotation [] annotations, nuint page, ref bool stop);
+	delegate NSObject PSPDFDocumentReloadDataProviderOverrideHandler (PSPDFDocumentProvider documentProvider);
 
 	[BaseType (typeof (NSObject))]
 	interface PSPDFDocument : PSPDFDocumentProviderDelegate, PSPDFOverridable, INSCopying, INSSecureCoding, PSPDFFileCoordinationDelegate {
@@ -2059,6 +2051,9 @@ namespace PSPDFKit.Model {
 
 		[Export ("pageOffsetForDocumentProvider:")]
 		nuint GetPageOffset (PSPDFDocumentProvider documentProvider);
+
+		[Export ("reloadDocumentProviders:dataProviderOverride:")]
+		void ReloadDocumentProviders (PSPDFDocumentProvider [] documentProviders, [NullAllowed] PSPDFDocumentReloadDataProviderOverrideHandler dataProviderOverride);
 
 		[NullAllowed, Export ("documentId", ArgumentSemantic.Copy)]
 		NSData DocumentId { get; }
@@ -2401,6 +2396,9 @@ namespace PSPDFKit.Model {
 		[Field ("PSPDFObjectFinderOptionPageZoomLevel", PSPDFKitLibraryPath.LibraryPath)]
 		NSString PageZoomLevelKey { get; }
 
+		[Field ("PSPDFObjectFinderOptionPagePDFScale", PSPDFKitLibraryPath.LibraryPath)]
+		NSString PagePdfScaleKey { get; }
+
 		[Field ("PSPDFObjectFinderOptionAnnotationIncludedGrouped", PSPDFKitLibraryPath.LibraryPath)]
 		NSString AnnotationIncludedGroupedKey { get; }
 
@@ -2436,6 +2434,7 @@ namespace PSPDFKit.Model {
 		PSPDFAnnotationType AnnotationTypes { get; set; }
 		CGRect AnnotationPageBounds { get; set; }
 		float PageZoomLevel { get; set; }
+		float PagePdfScale { get; set; }
 		bool AnnotationIncludedGrouped { get; set; }
 		bool SmartSort { get; set; }
 		float MinDiameter { get; set; }
@@ -4782,6 +4781,9 @@ namespace PSPDFKit.Model {
 		[NullAllowed, Export ("action")]
 		PSPDFAction Action { get; }
 
+		[Export ("uuid")]
+		string Uuid { get; }
+
 		[Export ("pageIndex")]
 		nuint PageIndex { get; }
 
@@ -5661,6 +5663,9 @@ namespace PSPDFKit.Model {
 
 		[Export ("showWatermark")]
 		bool ShowWatermark { get; set; }
+
+		[Export ("showDateTimezone")]
+		bool ShowDateTimezone { get; set; }
 	}
 
 	[BaseType (typeof (PSPDFBaseConfiguration))]
@@ -5706,6 +5711,9 @@ namespace PSPDFKit.Model {
 
 		[Export ("showWatermark")]
 		bool ShowWatermark { get; }
+
+		[Export ("showDateTimezone")]
+		bool ShowDateTimezone { get; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -7348,9 +7356,18 @@ namespace PSPDFKit.Model {
 		[Export ("to")]
 		double To { get; }
 
+		[Export ("formattedFrom")]
+		string FormattedFrom { get; }
+
+		[Export ("formattedTo")]
+		string FormattedTo { get; }
+
 		[Export ("initWithFrom:unitFrom:to:unitTo:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor (double from, PSPDFUnitFrom unitFrom, double to, PSPDFUnitTo unitTo);
+
+		[Export ("initWithFormattedFrom:unitFrom:formattedTo:unitTo:")]
+		NativeHandle Constructor (string formattedFrom, PSPDFUnitFrom unitFrom, string formattedTo, PSPDFUnitTo unitTo);
 	}
 
 	[BaseType (typeof (NSObject))]

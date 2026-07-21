@@ -1067,9 +1067,6 @@ namespace PSPDFKit.UI {
 		[Export ("isHalfModalVisible")]
 		bool IsHalfModalVisible { get; }
 
-		[Export ("firstResponderIsTextInput")]
-		bool FirstResponderIsTextInput { get; }
-
 		[Export ("enableAvoidance")]
 		bool EnableAvoidance { get; set; }
 	}
@@ -1413,17 +1410,8 @@ namespace PSPDFKit.UI {
 		[Export ("linkAction")]
 		PSPDFLinkAction LinkAction { get; set; }
 
-		[Export ("allowedMenuActions")]
-		PSPDFTextSelectionMenuAction AllowedMenuActions { get; set; }
-
 		[Export ("userInterfaceViewMode")]
 		PSPDFUserInterfaceViewMode UserInterfaceViewMode { get; set; }
-
-		[Export ("textSelectionMode")]
-		PSPDFTextSelectionMode TextSelectionMode { get; set; }
-
-		[Export ("textSelectionShouldSnapToWord")]
-		bool TextSelectionShouldSnapToWord { get; set; }
 
 		[Export ("typesShowingColorPresets")]
 		PSPDFAnnotationType TypesShowingColorPresets { get; set; }
@@ -1778,20 +1766,11 @@ namespace PSPDFKit.UI {
 		[Export ("linkAction")]
 		PSPDFLinkAction LinkAction { get; }
 
-		[Export ("allowedMenuActions")]
-		PSPDFTextSelectionMenuAction AllowedMenuActions { get; }
-
 		[Export ("textSelectionEnabled")]
 		bool TextSelectionEnabled { [Bind ("isTextSelectionEnabled")] get; }
 
 		[Export ("imageSelectionEnabled")]
 		bool ImageSelectionEnabled { [Bind ("isImageSelectionEnabled")] get; }
-
-		[Export ("textSelectionMode")]
-		PSPDFTextSelectionMode TextSelectionMode { get; }
-
-		[Export ("textSelectionShouldSnapToWord")]
-		bool TextSelectionShouldSnapToWord { get; }
 
 		[Advice ("You can use 'EditableAnnotationTypes' for a more strongly typed access.")]
 		[NullAllowed, Export ("editableAnnotationTypes", ArgumentSemantic.Copy)]
@@ -2162,11 +2141,6 @@ namespace PSPDFKit.UI {
 		[Abstract]
 		[Export ("showControlsAnimated:")]
 		bool ShowControls (bool animated);
-
-		[Obsolete]
-		[Abstract]
-		[Export ("showMenuIfSelectedWithOption:animated:")]
-		void ShowMenuIfSelected (PSPDFContextMenuOption contextMenuOption, bool animated);
 	}
 
 	interface IPSPDFControlDelegate { }
@@ -2631,6 +2605,14 @@ namespace PSPDFKit.UI {
 
 		[Export ("documents")]
 		PSPDFDocument [] Documents { get; }
+
+		[Field ("PSPDFDocumentInteractionControllerWillBeginSendingToApplicationNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString DocumentInteractionControllerWillBeginSendingToApplicationNotification { get; }
+
+		[Field ("PSPDFDocumentInteractionControllerDidEndSendingToApplicationNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString DocumentInteractionControllerDidEndSendingToApplicationNotification { get; }
 
 		[Export ("sharingConfigurations", ArgumentSemantic.Copy)]
 		PSPDFDocumentSharingConfiguration [] SharingConfigurations { get; set; }
@@ -3267,10 +3249,6 @@ namespace PSPDFKit.UI {
 
 		[Export ("preferredSizeFitting:forToolbarPosition:")]
 		CGSize GetPreferredSizeFitting (CGSize availableSize, PSPDFFlexibleToolbarPosition position);
-
-		[Obsolete ("Use 'UIButton.Menu' to add context menus to buttons instead.")]
-		[Export ("showMenuForCollapsedButtons:fromButton:animated:")]
-		void ShowMenuForCollapsedButtons (UIButton [] buttons, UIButton sourceButton, bool animated);
 	}
 
 	interface IPSPDFFlexibleToolbarContainerDelegate { }
@@ -3459,6 +3437,10 @@ namespace PSPDFKit.UI {
 
 		[Export ("clearButtonPressed:")]
 		void ClearButtonPressed ([NullAllowed] NSObject sender);
+
+		[Field ("PSPDFFormInputAccessoryViewDidPressClearButtonNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString DidPressClearButtonNotification { get; }
 	}
 
 	interface IPSPDFFormInputAccessoryViewDelegate { }
@@ -3988,6 +3970,10 @@ namespace PSPDFKit.UI {
 		[Export ("progress")]
 		nfloat Progress { get; }
 
+		[Field ("PSPDFGalleryItemContentStateDidChangeNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString ContentStateDidChangeNotification { get; }
+
 		[Static]
 		[Export ("itemsFromJSONData:error:")]
 		[return: NullAllowed]
@@ -4058,6 +4044,24 @@ namespace PSPDFKit.UI {
 
 		[Field ("PSPDFGalleryOptionFullscreen", PSPDFKitGlobal.LibraryPath)]
 		NSString FullscreenKey { get; }
+
+		[Field ("PSPDFGalleryOptionCoverMode", PSPDFKitGlobal.LibraryPath)]
+		NSString CoverModeKey { get; }
+
+		[Field ("PSPDFGalleryOptionCoverImage", PSPDFKitGlobal.LibraryPath)]
+		NSString CoverImageKey { get; }
+
+		[Field ("PSPDFGalleryOptionCoverPreviewCaptureTime", PSPDFKitGlobal.LibraryPath)]
+		NSString CoverPreviewCaptureTimeKey { get; }
+
+		[Field ("PSPDFGalleryOptionPreferredVideoQualities", PSPDFKitGlobal.LibraryPath)]
+		NSString PreferredVideoQualitiesKey { get; }
+
+		[Field ("PSPDFGalleryOptionStartTime", PSPDFKitGlobal.LibraryPath)]
+		NSString StartTimeKey { get; }
+
+		[Field ("PSPDFGalleryOptionEndTime", PSPDFKitGlobal.LibraryPath)]
+		NSString EndTimeKey { get; }
 	}
 
 	[StrongDictionary ("PSPDFGalleryOptionKeys")]
@@ -4423,9 +4427,6 @@ namespace PSPDFKit.UI {
 
 		[Export ("setApplication:")]
 		void SetApplication (IPSPDFApplication application);
-
-		[Export ("speechController")]
-		PSPDFSpeechController GetSpeechController ();
 
 		[return: NullAllowed]
 		[Export ("applePencilManager")]
@@ -5354,6 +5355,9 @@ namespace PSPDFKit.UI {
 		[Export ("selectGlyphs:presentMenu:animated:")]
 		void SelectGlyphs (PSPDFGlyph [] glyphs, bool presentMenu, bool animated);
 
+		[Export ("selectGlyphs:animated:")]
+		void SelectGlyphs (PSPDFGlyph [] glyphs, bool animated);
+
 		[Export ("selectImage:presentMenu:animated:")]
 		void SelectImage (PSPDFImageInfo image, bool presentMenu, bool animated);
 
@@ -5439,77 +5443,8 @@ namespace PSPDFKit.UI {
 		[Export ("showDigitalSignatureMenuForSignatureField:animated:")]
 		bool ShowDigitalSignatureMenu (PSPDFSignatureFormElement signatureField, bool animated);
 
-		[Obsolete]
-		[Export ("showMenuIfSelectedAnimated:")]
-		void ShowMenuIfSelected (bool animated);
-
-		[Obsolete]
-		[Export ("showMenuIfSelectedWithOption:animated:")]
-		void ShowMenuIfSelected (PSPDFContextMenuOption contextMenuOption, bool animated);
-
-		[Obsolete]
-		[Export ("showMenuForPoint:animated:")]
-		void ShowMenuForPoint (CGPoint location, bool animated);
-
 		[Export ("canCreateAnnotationsShowMessage:")]
 		bool CanCreateAnnotations (bool showMessage);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFViewController.Interactions.TryToShowAnnotationMenu' instead.")]
-		[Export ("showAnnotationMenuAtPoint:animated:")]
-		bool ShowAnnotationMenuAtPoint (CGPoint viewPoint, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'select(annotations:presentMenu:animated:' instead.")]
-		[Export ("showMenuForAnnotations:targetRect:option:animated:")]
-		void ShowMenu (PSPDFAnnotation [] annotations, CGRect targetRect, PSPDFContextMenuOption contextMenuOption, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentColorPicker(for:property:options:animated:completion:)' instead.")]
-		[Export ("selectColorForAnnotation:isFillColor:")]
-		void SelectColor (PSPDFAnnotation annotation, bool isFillColor);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'canPresentInspector(for:)' instead.")]
-		[Export ("useAnnotationInspectorForAnnotations:")]
-		bool UseAnnotationInspector (PSPDFAnnotation [] annotations);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentInspector(for:options:animated:completion:)' instead.")]
-		[Export ("showInspectorForAnnotations:options:animated:")]
-		[return: NullAllowed]
-		PSPDFAnnotationStyleViewController ShowInspector (PSPDFAnnotation [] annotations, [NullAllowed] NSDictionary options, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentComments(for:options:animated:completion:)' instead.")]
-		[Export ("showNoteControllerForAnnotation:animated:")]
-		void ShowNoteController (PSPDFAnnotation annotation, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentColorPicker(for:property:options:animated:completion:)' instead.")]
-		[Export ("showColorPickerForAnnotation:animated:")]
-		void ShowColorPicker (PSPDFAnnotation annotation, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentFontPicker(for:options:animated:completion:)' instead.")]
-		[Export ("showFontPickerForAnnotation:animated:")]
-		void ShowFontPicker (PSPDFFreeTextAnnotation annotation, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'presentLinkActionSheet(for:options:animated:completion:)' instead.")]
-		[Export ("showLinkPreviewActionSheetForAnnotation:fromRect:animated:")]
-		bool ShowLinkPreviewActionSheet (PSPDFLinkAnnotation annotation, CGRect viewRect, bool animated);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.AnnotationMenuConfiguration.ColorChoices' instead.")]
-		[Export ("defaultColorOptionsForAnnotationType:")]
-		UIColor [] GetDefaultColorOptions (PSPDFAnnotationType annotationType);
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.annotationMenuConfiguration.FontSizeChoices' instead.")]
-		[Export ("availableFontSizes")]
-		NSNumber [] AvailableFontSizes { get; }
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFConfiguration.annotationMenuConfiguration.LineWidthChoices' instead.")]
-		[Export ("availableLineWidths")]
-		NSNumber [] AvailableLineWidths { get; }
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PDFViewControllerDelegate.pdfViewController(_:menuForAnnotations:onPageView:appearance:suggestedMenu:)' instead.")]
-		[Export ("shouldMoveStyleMenuEntriesIntoSubmenu")]
-		bool ShouldMoveStyleMenuEntriesIntoSubmenu { get; }
-
-		[Obsolete ("Deprecated in PSPDFKit 12 for iOS. Use 'PresentationOption.PopoverPassthroughViews' instead.")]
-		[Export ("passthroughViewsForPopoverController")]
-		UIView [] PassthroughViewsForPopoverController { get; }
 	}
 
 	interface IPSPDFPresentationContext { }
@@ -5717,6 +5652,9 @@ namespace PSPDFKit.UI {
 		[Export ("guideSnapAllowance")]
 		nfloat GuideSnapAllowance { get; set; }
 
+		[Field ("PSPDFGuideSnapAllowanceAlways", PSPDFKitGlobal.LibraryPath)]
+		nfloat GuideSnapAllowanceAlways { get; }
+
 		[Export ("minWidth")]
 		nfloat MinWidth { get; set; }
 
@@ -5780,11 +5718,6 @@ namespace PSPDFKit.UI {
 		[Abstract]
 		[Export ("setAnnotationSets:error:")]
 		bool SetAnnotationSets (PSPDFAnnotationSet[] newValue, [NullAllowed] out NSError error);
-
-		[Obsolete ("Use 'FetchAnnotationSets' and 'SetAnnotationSets' instead.")]
-		[Abstract]
-		[Export ("annotationSets", ArgumentSemantic.Copy)]
-		PSPDFAnnotationSet [] AnnotationSets { get; set; }
 	}
 
 	[BaseType (typeof (NSObject))]
@@ -6161,9 +6094,6 @@ namespace PSPDFKit.UI {
 		[Export ("searchVisiblePagesFirst")]
 		bool SearchVisiblePagesFirst { get; set; }
 
-		[Export ("numberOfPreviewTextLines")]
-		nuint NumberOfPreviewTextLines { get; set; }
-
 		[Export ("useOutlineForPageNames")]
 		bool UseOutlineForPageNames { get; set; }
 
@@ -6473,57 +6403,6 @@ namespace PSPDFKit.UI {
 
 		[Export ("signedFormElementViewController:removedSignatureFromDocument:")]
 		void RemovedSignatureFromDocument (PSPDFSignedFormElementViewController controller, PSPDFDocument document);
-	}
-
-	[BaseType (typeof (NSObject))]
-	interface PSPDFSpeechController {
-
-		[Export ("speakText:options:delegate:")]
-		void SpeakText (string speechString, [NullAllowed] NSDictionary options, [NullAllowed] IAVSpeechSynthesizerDelegate @delegate);
-
-		[Wrap ("SpeakText (speechString, speechOptions?.Dictionary, @delegate)")]
-		void SpeakText (string speechString, PSPDFSpeechControllerOptions speechOptions, IAVSpeechSynthesizerDelegate @delegate);
-
-		[Export ("stopSpeakingForDelegate:")]
-		bool StopSpeaking ([NullAllowed] IAVSpeechSynthesizerDelegate @delegate);
-
-		[Export ("speechSynthesizer")]
-		AVSpeechSynthesizer SpeechSynthesizer { get; }
-
-		[Export ("selectedLanguage")]
-		string SelectedLanguage { get; set; }
-
-		[Export ("languageCodes", ArgumentSemantic.Copy)]
-		string [] LanguageCodes { get; }
-
-		[Export ("speakRate")]
-		float SpeakRate { get; set; }
-
-		[Export ("pitchMultiplier")]
-		float PitchMultiplier { get; set; }
-
-		[Export ("prefersAssistiveTechnologySettings")]
-		bool PrefersAssistiveTechnologySettings { get; set; }
-	}
-
-	[Static]
-	interface PSPDFSpeechControllerOptionKeys {
-
-		[Field ("PSPDFSpeechControllerOptionAutoDetectLanguage", PSPDFKitGlobal.LibraryPath)]
-		NSString AutoDetectLanguageKey { get; }
-
-		[Field ("PSPDFSpeechControllerOptionLanguage", PSPDFKitGlobal.LibraryPath)]
-		NSString LanguageKey { get; }
-
-		[Field ("PSPDFSpeechControllerOptionLanguageHint", PSPDFKitGlobal.LibraryPath)]
-		NSString LanguageHintKey { get; }
-	}
-
-	[StrongDictionary ("PSPDFSpeechControllerOptionKeys")]
-	interface PSPDFSpeechControllerOptions {
-		bool AutoDetectLanguage { get; set; }
-		string Language { get; set; }
-		string LanguageHint { get; set; }
 	}
 
 	[BaseType (typeof (PSPDFTableViewCell))]
@@ -6993,17 +6872,11 @@ namespace PSPDFKit.UI {
 		[Export ("selectionAlpha")]
 		nfloat SelectionAlpha { get; set; }
 
-		[Export ("selectionHitTestExtension")]
-		nfloat SelectionHitTestExtension { get; set; }
-
 		[Export ("showTextFlowData:animated:")]
 		void ShowTextFlowData (bool show, bool animated);
 
 		[Export ("discardSelectionAnimated:")]
 		void DiscardSelection (bool animated);
-
-		[Export ("updateMenuAnimated:")]
-		bool UpdateMenu (bool animated);
 	}
 
 	interface IPSPDFTextStampViewControllerDelegate { }
@@ -7109,6 +6982,12 @@ namespace PSPDFKit.UI {
 
 		[Export ("stickyHeaderEnabled")]
 		bool StickyHeaderEnabled { get; set; }
+
+		[Export ("flipsLayoutDirection")]
+		bool FlipsLayoutDirection { get; set; }
+
+		[Export ("invalidateLayoutWithPageModeChange")]
+		void InvalidateLayoutWithPageModeChange ();
 	}
 
 	interface IPSPDFCollectionViewDelegateThumbnailFlowLayout { }
@@ -8050,6 +7929,18 @@ namespace PSPDFKit.UI {
 
 		[Export ("done:")]
 		void Done ([NullAllowed] NSObject sender);
+
+		[Field ("PSPDFWebViewControllerDidStartLoadingNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString DidStartLoadingNotification { get; }
+
+		[Field ("PSPDFWebViewControllerDidFinishLoadingNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString DidFinishLoadingNotification { get; }
+
+		[Field ("PSPDFWebViewControllerDidFailToLoadNotification", PSPDFKitGlobal.LibraryPath)]
+		[Notification]
+		NSString DidFailToLoadNotification { get; }
 	}
 
 	[Category]
@@ -8709,14 +8600,6 @@ namespace PSPDFKit.UI {
 		bool TryToPerformSmartZoom (CGPoint point, IUICoordinateSpace coordinateSpace);
 
 		[Abstract]
-		[Export ("selectText")]
-		PSPDFInteractionComponent /*<NSNull>*/ SelectText { get; }
-
-		[Abstract]
-		[Export ("deselectText")]
-		PSPDFInteractionComponent /*<NSNull>*/ DeselectText { get; }
-
-		[Abstract]
 		[Export ("toggleUserInterface")]
 		PSPDFInteractionComponent /*<NSNull>*/ ToggleUserInterface { get; }
 
@@ -8806,8 +8689,14 @@ namespace PSPDFKit.UI {
 		[Export ("isNaturalDrawingEnabled")]
 		bool IsNaturalDrawingEnabled { get; set; }
 
+		[Export ("usePencilKit")]
+		bool UsePencilKit { get; set; }
+
 		[Export ("fonts", ArgumentSemantic.Copy)]
 		UIFont [] Fonts { get; set; }
+
+		[Export ("signingAreaAspectRatio")]
+		nfloat SigningAreaAspectRatio { get; set; }
 	}
 
 	[BaseType (typeof (PSPDFBaseConfiguration))]
@@ -8836,8 +8725,14 @@ namespace PSPDFKit.UI {
 		[Export ("isNaturalDrawingEnabled")]
 		bool IsNaturalDrawingEnabled { get; }
 
+		[Export ("usePencilKit")]
+		bool UsePencilKit { get; }
+
 		[Export ("fonts", ArgumentSemantic.Copy)]
 		UIFont [] Fonts { get; }
+
+		[Export ("signingAreaAspectRatio")]
+		nfloat SigningAreaAspectRatio { get; }
 	}
 
 	[BaseType (typeof (UISegmentedControl))]
