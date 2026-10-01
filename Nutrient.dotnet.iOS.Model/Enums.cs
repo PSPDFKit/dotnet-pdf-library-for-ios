@@ -676,6 +676,18 @@ namespace PSPDFKit.Model {
 	}
 
 	[Native]
+	public enum PSPDFOverprintPreview : ulong {
+		Automatic = 0,
+		Disabled
+	}
+
+	[Native]
+	public enum PSPDFBlackRendering : ulong {
+		Accurate = 0,
+		PureBlack
+	}
+
+	[Native]
 	public enum PSPDFRenderQueuePriority : ulong {
 		Unspecified = 0,
 		Background = 100,

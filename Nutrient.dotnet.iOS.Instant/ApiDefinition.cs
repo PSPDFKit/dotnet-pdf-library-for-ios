@@ -276,6 +276,10 @@ namespace PSPDFKit.Instant {
 		[Export ("downloaded")]
 		bool Downloaded { [Bind ("isDownloaded")] get; }
 
+		// Optional so existing conformers keep compiling; check RespondsToSelector for descriptors not vended by PSPDFInstantClient.
+		[Export ("hasStaleBackingPDF")]
+		bool HasStaleBackingPdf { get; }
+
 		[Abstract]
 		[Export ("documentState")]
 		PSPDFInstantDocumentState DocumentState { get; }

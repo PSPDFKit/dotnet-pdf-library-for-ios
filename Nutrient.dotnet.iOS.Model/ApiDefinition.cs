@@ -4143,6 +4143,9 @@ namespace PSPDFKit.Model {
 		[Field ("PSPDFSettingKeyLowMemoryMode", PSPDFKitLibraryPath.LibraryPath)]
 		NSString LowMemoryModeKey { get; }
 
+		[Field ("PSPDFSettingKeySuspendsRenderingWhenBackgrounded", PSPDFKitLibraryPath.LibraryPath)]
+		NSString SuspendsRenderingWhenBackgroundedKey { get; }
+
 		[Static]
 		[Export ("sharedInstance")]
 		PSPDFKitGlobal SharedInstance { get; }
@@ -6432,6 +6435,9 @@ namespace PSPDFKit.Model {
 		[Export ("maximumNumberOfSearchResults")]
 		nuint MaximumNumberOfSearchResults { get; set; }
 
+		[Export ("searchStoppedDueToLowMemory")]
+		bool SearchStoppedDueToLowMemory { get; }
+
 		[NullAllowed, Export ("document", ArgumentSemantic.Weak)]
 		PSPDFDocument Document { get; }
 
@@ -7180,6 +7186,12 @@ namespace PSPDFKit.Model {
 
 		[Export ("margin", ArgumentSemantic.Assign)]
 		UIEdgeInsets Margin { get; set; }
+
+		[Export ("overprintPreview", ArgumentSemantic.Assign)]
+		PSPDFOverprintPreview OverprintPreview { get; set; }
+
+		[Export ("blackRendering", ArgumentSemantic.Assign)]
+		PSPDFBlackRendering BlackRendering { get; set; }
 	}
 
 	[Static]

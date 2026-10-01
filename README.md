@@ -24,9 +24,10 @@ Minimum Requirements
 
 In order to build this binding project you need:
 
-- **Visual Studio for Mac 2022 17.4.3+**
-- **.NET for iOS 17.2.8004/8.0.100 or higher +**
-- **.NET for MacCatalyst 17.2.8004/8.0.100 or higher +**
+- **Xcode 27**
+- **.NET 10 SDK with the iOS and MacCatalyst workloads 27.0 or higher**
+
+Apps using the bindings must target iOS 17.0 / Mac Catalyst 17.0 or higher.
 
 Build Instructions
 ==================
